@@ -390,6 +390,11 @@ def cmd_post(args) -> int:
             print(f"skip {a['comment_id']}: already replied")
             continue
         text = a["text"].strip()
+        # YouTube has one level of replies: answering a reply needs their handle first, or it reads as aimed at the
+        # thread's first commenter
+        if a["comment_id"] != a["thread_id"] and a.get("author", "").startswith("@") \
+                and not text.startswith(a["author"]):
+            text = f"{a['author']} {text}"
         if not text or len(text) > 9000:
             print(f"!! {a['comment_id']}: empty or too long", file=sys.stderr)
             bad += 1
