@@ -89,6 +89,17 @@ our audience is over 45."
   like a bot, and that loses the very viewer the ask is for. The owner can change them.
 - **Our own mistakes:** check the viewer's point against sources; if right, thank them and say exactly what was wrong
   (§6).
+- **The owner on the first drafts (2026-10-29): "Still generic and still saying what's actually in the script. Where
+  is the interaction with the audience? Where is the sense of humour?"** A reply is a chat, not a summary of the film.
+  The shape now:
+  1. **React to the person**, in their words: laugh with them, tease gently, agree out loud ("90? Right now we'd throw
+     a party for 42").
+  2. **One joke from daily Indian life**: the pressure cooker's third whistle, the wall clock, the driving test, the
+     desk-thump in parliament, the long-running TV serial.
+  3. **One fact at most**, only when it lands the punch or wins the point. Often none. Never retell the film.
+  4. **End with a question back** they will want to answer: their guess, their bet, their one fix ("If you ran DRDO
+     for a day, what would you fix first?").
+  5. 25–60 words. Read it aloud: if it sounds like a narrator, rewrite it as a friend.
 
 ## 3. The comment types
 
