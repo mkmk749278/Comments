@@ -184,8 +184,9 @@ formation." So:
   doesn't"), no written-English build-ups ("Rolls-Royce says its blades work in heat up to…").
 - **No quiz questions.** A multiple-choice question after a reply sounds like a teacher or a bot. Ask only what a
   friend at the tea stall would ask, or don't ask.
-- **No tacked-on subscribe line.** If an invitation doesn't flow from the sentence before it, leave it out; one fewer
-  ask beats one robotic ask.
+- **The subscribe invitation in plain words, like a person says it (owner: "Ask subscription but in simple words like
+  naturally").** Not "If machines like this are your kind of magic, you may like to subscribe" but "Stories like this
+  keep coming here, so do subscribe if you haven't already." One short line at the end, everyday words.
 - **Stop when the point has landed.** Fact plus smile is often the whole reply.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
