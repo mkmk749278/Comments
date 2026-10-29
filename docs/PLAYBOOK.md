@@ -152,6 +152,32 @@ toasting ; acknowledge-validate-act and the "but" rule from customer-empathy gui
 research (arXiv 2402.12770) ; hope vs sarcasm detection (arXiv 2504.17974) ; Amul's gentle topical humour
 (exchange4media.com, storyboard18.com).
 
+### 2.7 Answer what they actually said (owner, 2026-10-29)
+"For that simple comment why that much to explain?" … "Use sense of humour and think what actually he said and what
+reply actually satisfies him."
+
+@NECATR4D wrote "Superb detailing. My appreciations". We answered with a paragraph on Vande Bharat braking distance,
+numbers spelled out like the narration. He had asked nothing: he was paying a compliment, and what satisfies a
+compliment is knowing it reached a real person, with a smile. The reply now in place:
+> Thank you. You noticed the detailing, so all those railway rulebooks we read were worth it. Our eyes are still
+> recovering 😄
+
+So, before drafting, answer three questions in the draft's `Feeling` line:
+1. **What did they actually say?** A thank-you, a joke, a question, a point, a story. Answer *that*, not the film.
+2. **What would satisfy them?** A compliment wants to be received; a question wants an answer; a joke wants a laugh
+   back; a point wants to be taken seriously.
+3. **Is the reply the size of the comment?** A few words of praise get one or two short lines back (about 10–25
+   words), warm and with a light touch of humour, no film fact, and a question only if it comes naturally. Long,
+   thoughtful comments earn the longer shapes in §2.5 and §3.1.
+
+Two smaller lessons from the same reply:
+- **Digits in replies.** Spelled-out numbers ("one hundred and thirty km per hour") are a narration rule for the voice;
+  in a written comment "130 km/h" is easier to read, most of all for readers over 45.
+- **One voice per reply.** Speak as "we" (the channel) all the way through; don't switch to "my" halfway.
+
+`scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
+`state/handled.csv`.
+
 ## 3. The comment types
 
 Every comment gets one type. The type decides the action.
@@ -275,6 +301,7 @@ left unposted and stays in the next batch once, then is logged as skipped.
 | New uploads | `python3 scripts/yt.py videos` | Adds new video ids to `config/videos.yaml` with `film: null` (public feed, latest 15; `--api` lists every upload). Map each to its film folder by title before drafting. |
 | Fetch | `python3 scripts/yt.py fetch` | Writes `runs/<stamp>/new.json` (gitignored): new comments and replies not in `state/handled.csv`, our own excluded, YouTube's held-for-review queue flagged `held: true`, plus new answers under threads we replied to in the last 14 days. Each comment carries `our_last_reply` (when the channel last replied in that thread, also by hand in Studio) and `after_our_reply`. `--days` sets how far back to page (default 7). |
 | Post | `python3 scripts/yt.py post approved.json --confirm` | Only after the owner's approval. JSON list of `{comment_id, thread_id, channel, video_id, author, type, language, text}`. Replies go under the thread (YouTube has one level of replies); to answer a reply, start the text with `@their-handle`. Already-replied ids are skipped, so a re-run never double-posts. |
+| Edit | `python3 scripts/yt.py edit --channel C --reply REPLY_ID --text "…" --confirm` | Replaces the text of one of our logged replies (the `reply_id` in `state/handled.csv`) after the owner approves the new text; adds `edited <time>` to that row's note. |
 | Hide | `python3 scripts/yt.py hide --channel C --comment ID [--ban] --confirm` | Rejects the comment (gone from public view). `--ban` also hides the author from the channel. Owner's call only. |
 | Log | `python3 scripts/yt.py record --channel C --comment ID --action skipped\|heart\|pin\|heart+pin\|held\|no-reply` | Every comment in a batch gets a row, posted or not. |
 
