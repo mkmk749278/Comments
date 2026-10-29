@@ -15,7 +15,7 @@ Claude is the channels' voice in the comments: it reads every new comment, sorts
 owner what to heart, pin and hide. **The owner approves every reply before it is posted.** Nothing goes public on its own.
 
 ## The loop (PLAYBOOK §5)
-1. **Fetch** new comments from both channels (`scripts/`, Phase 2). Skip every comment id already in
+1. **Fetch** new comments from both channels (`scripts/yt.py fetch`). Skip every comment id already in
    `state/handled.csv`.
 2. **Sort** each comment into one of the seven types (PLAYBOOK §3) and decide: reply, heart only, or hide.
 3. **Draft** replies grounded in the film's own sourced files (its `claims.csv`, script, research, review notes).
@@ -67,7 +67,10 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - `config/channels.yaml`: the two channels, their film repos, voice and language rules.
 - `config/videos.yaml`: YouTube video id → film folder in the film repo (filled from each channel's uploads).
 - `state/handled.csv`: every comment we decided on (one row per comment id). `state/errata.csv`: viewer corrections.
-- `scripts/`: fetch, post and moderation tooling (Phase 2). `docs/PLAYBOOK.md`: everything else.
+- `scripts/yt.py`: fetch, post, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
+- `docs/SETUP.md`: the owner's one-time phone setup for YouTube access. `docs/PLAYBOOK.md`: everything else.
+- Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BUILTONBHARAT`,
+  `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`.
 
 ## Ground rules
 1. Ask before adding paid services, and report the expected cost.

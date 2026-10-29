@@ -115,7 +115,7 @@ fresh for that comment. The `[…]` parts are filled from the comment and the fi
 ## 5. The workflow
 
 ### 5.1 One run
-1. Fetch new comments and replies on both channels since the last run (Phase 2 scripts). Skip ids in
+1. Fetch new comments and replies on both channels since the last run (`scripts/yt.py fetch`, §5.5). Skip ids in
    `state/handled.csv`. Also fetch replies under our own replies: a viewer answering us gets a turn too.
 2. Match each video id to its film folder (`config/videos.yaml`) and read that film's `claims.csv`, script and
    `youtube/description.md` (chapters, for timestamps).
@@ -167,6 +167,22 @@ left unposted and stays in the next batch once, then is logged as skipped.
   Early replies matter most: they set the tone of the thread.
 - Runs share the usage limit with video work; when the owner is mid-render, skip a normal run rather than starve it.
 
+### 5.5 Commands (`scripts/yt.py`, Python 3 + `pip install -r requirements.txt`)
+| Step | Command | Notes |
+| :--- | :--- | :--- |
+| Check access | `python3 scripts/yt.py whoami` | `OK` per channel when its token signs in as the right channel. |
+| New uploads | `python3 scripts/yt.py videos` | Adds new video ids to `config/videos.yaml` with `film: null` (public feed, latest 15; `--api` lists every upload). Map each to its film folder by title before drafting. |
+| Fetch | `python3 scripts/yt.py fetch` | Writes `runs/<stamp>/new.json` (gitignored): new comments and replies not in `state/handled.csv`, our own excluded, YouTube's held-for-review queue flagged `held: true`, plus new answers under threads we replied to in the last 14 days. `--days` sets how far back to page (default 7). |
+| Post | `python3 scripts/yt.py post approved.json --confirm` | Only after the owner's approval. JSON list of `{comment_id, thread_id, channel, video_id, author, type, language, text}`. Replies go under the thread (YouTube has one level of replies); to answer a reply, start the text with `@their-handle`. Already-replied ids are skipped, so a re-run never double-posts. |
+| Hide | `python3 scripts/yt.py hide --channel C --comment ID [--ban] --confirm` | Rejects the comment (gone from public view). `--ban` also hides the author from the channel. Owner's call only. |
+| Log | `python3 scripts/yt.py record --channel C --comment ID --action skipped\|heart\|pin\|heart+pin\|held\|no-reply` | Every comment in a batch gets a row, posted or not. |
+
+Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md`. Offline tests:
+`python3 -m unittest tests/test_yt.py`.
+
+`config/videos.yaml` notes: the two Moon/jet-engine uploads (`_4G7-vTadZQ`, `m4h_2gXESp0`) both map to
+`projects/jet-engine-paradox`; check which cut each is before quoting a timestamp.
+
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
    memory.
@@ -210,5 +226,5 @@ the first few hours; the best viewer comment pinned by hour 8; every correct cor
 - **Can't:** heart a comment, pin a comment. These stay manual in the YouTube Studio app; every batch lists them.
 - **Quota:** 10,000 free units a day per Google Cloud project. Reading a page of comments costs about 1 unit, posting a
   reply about 50, so a day's work fits easily.
-- **Access:** one OAuth sign-in per channel, done once by the owner on the phone (guide in Phase 2). Tokens live in
+- **Access:** one OAuth sign-in per channel, done once by the owner on the phone (`docs/SETUP.md`). Tokens live in
   environment secrets only.
