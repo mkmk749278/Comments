@@ -97,8 +97,8 @@ our audience is over 45."
   2. **One joke from daily Indian life**: the pressure cooker's third whistle, the wall clock, the driving test, the
      desk-thump in parliament, the long-running TV serial.
   3. **One fact at most**, only when it lands the punch or wins the point. Often none. Never retell the film.
-  4. **End with a question back** they will want to answer: their guess, their bet, their one fix ("If you ran DRDO
-     for a day, what would you fix first?").
+  4. **A question back only when a friend would ask it**: their guess, their bet, their one fix ("If you ran DRDO
+     for a day, what would you fix first?"). Never a quiz ("Which surprised you most, A, B or C?"): see §2.7.
   5. 25–60 words. Read it aloud: if it sounds like a narrator, rewrite it as a friend.
 - **Read the feeling under the comment, then answer that (owner, 2026-10-29).** @tonystarc9567 wrote "I read that
   India successfully built single crystal turbine blade tech..." (trailing dots, right after a worried comment on
@@ -174,6 +174,20 @@ Two smaller lessons from the same reply:
 - **Digits in replies.** Spelled-out numbers ("one hundred and thirty km per hour") are a narration rule for the voice;
   in a written comment "130 km/h" is easier to read, most of all for readers over 45.
 - **One voice per reply.** Speak as "we" (the channel) all the way through; don't switch to "my" halfway.
+
+**The second lesson the same day: no quiz, no tacked-on lines (owner, 2026-10-29).** On "The magic of metals." we
+replied with the blade fact, then "Which trick surprised you most, the single crystal, the cooling air or the ceramic
+coat? If machines like this are your kind of magic, you may like to subscribe." The owner: "Explaining the magic of
+metal is fine, asking after that it feels generic robotic reply. Use natural simple words, simple kind of sentence
+formation." So:
+- **Simple sentences, the way people talk.** Short subject-verb lines, everyday words ("the blade should melt, but it
+  doesn't"), no written-English build-ups ("Rolls-Royce says its blades work in heat up to…").
+- **No quiz questions.** A multiple-choice question after a reply sounds like a teacher or a bot. Ask only what a
+  friend at the tea stall would ask, or don't ask.
+- **The subscribe invitation in plain words, like a person says it (owner: "Ask subscription but in simple words like
+  naturally").** Not "If machines like this are your kind of magic, you may like to subscribe" but "Stories like this
+  keep coming here, so do subscribe if you haven't already." One short line at the end, everyday words.
+- **Stop when the point has landed.** Fact plus smile is often the whole reply.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
