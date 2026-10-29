@@ -1,8 +1,35 @@
-# YouTube video id -> film folder in the channel's film repo. Filled from each channel's uploads (Phase 2).
-# Example:
-#   VIDEO_ID_11:
-#     channel: builtonbharat
-#     film: films/tata-history
-#     title: "<published title>"
-#     published: 2026-11-01
-videos: {}
+# YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).
+# `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.
+videos:
+  I_udRtf5Rng:
+    channel: bepracticalwithkishore
+    film: projects/jet-engine-bet
+    published: '2026-10-28'
+    title: 30 Tejas Jets Are Ready. Why Can't They Fly?
+  _4G7-vTadZQ:
+    channel: bepracticalwithkishore
+    film: projects/jet-engine-paradox
+    note: two uploads of the jet-engine-paradox film; check which cut each is before quoting timestamps
+    published: '2026-10-14'
+    title: India Landed on the Moon. Why Can't It Build a Jet Engine? | Be Practical With Kishore
+  kBSiNkouDUY:
+    channel: bepracticalwithkishore
+    film: projects/rare-earth-magnets
+    published: '2026-10-22'
+    title: India Has 7M Tons of Rare Earths. Why Can't We Make Magnets?
+  m4h_2gXESp0:
+    channel: bepracticalwithkishore
+    film: projects/jet-engine-paradox
+    note: two uploads of the jet-engine-paradox film; check which cut each is before quoting timestamps
+    published: '2026-10-18'
+    title: India Reached the Moon. Why Can't It Build a Jet Engine? | Be Practical With Kishore
+  pDC78qQUWcc:
+    channel: bepracticalwithkishore
+    film: episodes/india-semiconductor-gamble
+    published: '2026-10-07'
+    title: 'The $10 Billion Chip Gamble: Inside India’s Semiconductor Race #SemiconductorMission #MakeInIndia'
+  yUJGQqawvxw:
+    channel: bepracticalwithkishore
+    film: projects/kavach-railway-reality
+    published: '2026-10-17'
+    title: 'Why Kavach Won''t Stop Every Train Crash: The Hard Truth'
