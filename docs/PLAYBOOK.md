@@ -55,6 +55,41 @@ Four traits for every reply, from the owner's document:
 - **One emoji at most**, only on light replies.
 - **Speak as the channel.** "We" for the channel's work; never invent a team, a process or a plan.
 
+### 2.4 Know the viewer (owner, 2026-10-29)
+"We need to see who the user actually is: an elite user who regularly interacts with us or not, how loving, what kind
+of behaviour, and whether the user actually subscribed to our channel."
+- `fetch` reads the channel's whole comment history every run and gives each new comment a `viewer` profile:
+  comments, videos commented on, likes, how often we answered them, held comments, first seen, their last three
+  comments, `regular` (3+ comments or 2+ videos), `subscribed`, and `invited_before` (a past `sub-ask` in
+  `state/handled.csv`). All of it is also in `runs/<stamp>/viewers.json`.
+- **Subscribed is `yes` or `unknown`, never `no`.** The API lists only subscribers who keep their subscriptions public
+  (48 of 215 on 2026-10-29), and a viewer's private subscriptions return 403. Never tell anyone they are not
+  subscribed.
+- **Read the behaviour from their last comments:** elite (long, specific, comes back), fan (warm, often short),
+  sceptic (doubts, argues in good faith), cynic, troll (mockery, pile-ons), abusive (slurs → hide).
+- **Profiles never go in git.** This repo is public; who comments how often, and who subscribes, stays in `runs/`.
+- Use it: an elite or regular viewer is greeted as someone we know ("you've been asking the sharpest questions here");
+  a first-timer is welcomed; a troll's history tells us not to start a thread.
+
+### 2.5 The owner's voice directive (2026-10-29)
+"If not subscribed, we ask him to subscribe. Human-like nature is most important; use your creativity here. Remember I'm
+Indian and proud to say it. We should respect our nation first in comments. If anything is really wrong in our video,
+simply check the facts and reply accordingly. Use a sense of humour, humanity, satire and the most simple words: most of
+our audience is over 45."
+- **India first.** Proud, warm, never jingoistic. When India is mocked, answer with one true, sourced fact and a smile.
+  Satire aims at the claim, never at a people, country, religion or race (the hard line in CLAUDE.md stays).
+- **Simple words for viewers over 45.** Short sentences, everyday words, no jargon without a plain gloss ("the new
+  radar", not "AESA integration"), no slang ("bro", "man"), no internet-speak.
+- **Humour and humanity.** A light line, a gentle tease, a picture from daily life. Never sarcasm at the viewer.
+- **Subscribe invitations, done like a person would:** only to a genuine viewer (elite, regular, fan, good-faith
+  sceptic) whose subscription is `unknown`; at most once per viewer, ever (log `sub-ask` in the handled note); only at
+  the end of a reply that already gave them something; written fresh, tied to what they care about, and fine to read
+  even if they already subscribe ("if you haven't subscribed yet…"). Never to trolls, never to listed subscribers, never
+  the same sentence twice in a batch. *Why these guardrails (Claude, 2026-10-29):* a repeated or mistargeted ask reads
+  like a bot, and that loses the very viewer the ask is for. The owner can change them.
+- **Our own mistakes:** check the viewer's point against sources; if right, thank them and say exactly what was wrong
+  (§6).
+
 ## 3. The comment types
 
 Every comment gets one type. The type decides the action.
@@ -104,7 +139,7 @@ fresh for that comment. The `[…]` parts are filled from the comment and the fi
 
 | Never | Why | Instead |
 | :--- | :--- | :--- |
-| "Thanks for watching! Please subscribe!" (or "hit subscribe", "stick around") | Sounds like a bot; adds nothing. | Add a detail or a question. The film earns the subscribe. |
+| "Thanks for watching! Please subscribe!" (or "hit subscribe", "stick around") as a stock line | Sounds like a bot; adds nothing. | Add something first; then, if §2.5 allows, a fresh personal invitation. |
 | "YouTube videos have a time limit." | Defensive. | "We had to keep that part short. You've filled in what we left out." |
 | "You didn't watch the full video." | Starts a fight in public. | "At 6:15 we go through the numbers behind that." |
 | "Jai Hind! India will beat everyone!" | Flattens a careful film into chest-thumping. | A grounded line about what is actually built. |
@@ -156,7 +191,8 @@ left unposted and stays in the next batch once, then is logged as skipped.
 
 ### 5.3 Checks before a draft reaches the owner
 - Every fact traces to a source shown under the draft. No fact without a source.
-- No banned phrase (§4), no subscribe ask, no link, no Hindi tag on Built on Bharat.
+- No banned phrase (§4), no link, no Hindi tag on Built on Bharat. A subscribe invitation only as §2.5 allows.
+- The viewer's profile (§2.4) was read, and the reply fits who they are.
 - Language matches the commenter (Be Practical with Kishore) or is English (Built on Bharat).
 - Timestamps are right for the published cut.
 - Read it aloud in your head as the narrator: warm, short, human. Not a teacher, not a press release.
@@ -193,7 +229,8 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
 - **Hand replies broke a few rules** (subscribe asks, numbers from memory such as toilet and tap-water counts). They
   stay as they are; new replies go through the batch so every fact has a row.
 - **Pile-ons from foreign accounts** (the rare-earth film drew dozens of "toilets", "brag" and racist one-liners): no
-  reply to any of them. Hide slurs and racist or sexist lines; leave plain mockery alone; never step into
+  thread wars. Since the owner's directive (§2.5), one or two of the most-seen jabs per batch may get a single witty,
+  sourced reply. Hide slurs and racist or sexist lines; leave plain mockery alone; never step into
   viewer-against-viewer fights, even when a viewer defends India rudely. Reply to the few real arguments with one
   sourced fact.
 - **Two fetch bugs fixed:** replies read through `comments.list` carry no `videoId` (now taken from the thread), and a
@@ -227,7 +264,7 @@ the first few hours; the best viewer comment pinned by hour 8; every correct cor
 - **Template numbers removed.** The document's examples carried figures with no sources (workforce counts, plant
   capacities, scheme sizes). A reply is public like the film, so the same fact rule applies.
 - **Subscribe asks removed.** The document bans "please subscribe" but three templates ended with "hit subscribe /
-  stick around". We drop them all.
+  stick around". We dropped them all. *Changed by the owner on 2026-10-29:* personal invitations are back, within §2.5.
 - **No untrue claims.** "Our visual team", "noted for our remastered pass" and "I'm reading every response" are said
   only when true.
 - **Toned down.** "Incredible eye", "Honored to have minds like yours", "man" → start with their point, warm and plain.
