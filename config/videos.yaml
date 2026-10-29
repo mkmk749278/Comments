@@ -1,0 +1,8 @@
+# YouTube video id -> film folder in the channel's film repo. Filled from each channel's uploads (Phase 2).
+# Example:
+#   VIDEO_ID_11:
+#     channel: builtonbharat
+#     film: films/tata-history
+#     title: "<published title>"
+#     published: 2026-11-01
+videos: {}

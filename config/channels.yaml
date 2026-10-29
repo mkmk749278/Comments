@@ -1,0 +1,18 @@
+# The two channels this repo answers for. Channel ids are filled in Phase 2 (from the API, once access is set up).
+channels:
+  builtonbharat:
+    name: Built on Bharat
+    handle: "@builtonbharat"
+    channel_id: null
+    film_repo: mkmk749278/Built-on-Bharat
+    film_dirs: [films]
+    reply_language: en            # English always (PLAYBOOK §2.1)
+    voice: docs/PLAYBOOK.md#21-built-on-bharat
+  bepracticalwithkishore:
+    name: Be Practical with Kishore
+    handle: "@bepracticalwithkishore"
+    channel_id: null
+    film_repo: mkmk749278/Creator
+    film_dirs: [projects, episodes]
+    reply_language: match         # match the commenter: te / Tenglish / en (owner, 2026-10-29; PLAYBOOK §2.2)
+    voice: docs/PLAYBOOK.md#22-be-practical-with-kishore

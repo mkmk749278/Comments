@@ -1,0 +1,10 @@
+# Secrets never go in git
+*.token
+*.secret
+client_secret*.json
+token*.json
+.env
+# Local working files
+.venv/
+__pycache__/
+runs/
