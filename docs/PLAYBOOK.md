@@ -110,6 +110,48 @@ our audience is over 45."
 - **Each run checks how posted replies landed:** a like on our reply, the viewer's answer, or silence after 48 hours.
   Report it in the batch so the voice keeps learning.
 
+### 2.6 Feel first, then inform (owner, 2026-10-29)
+"First read the audience's feeling: what kind of comment, with what emotion he wrote it. We should respect that. But if
+anything goes against respect to India, we roast him satirically. When our reply lands, he should feel satisfaction.
+That emotional touch with information is the real key."
+
+**Step 1: read the feeling.** Read the words, then the clues, then the viewer's profile (§2.4):
+- Clues: trailing "..." (a hope, half-asked), "😂" or "Dream on" (mockery), capitals (anger), "we" and "our"
+  (an Indian speaking as one of us), a long list of failures from an Indian viewer (hurt pride, not hate).
+- Context: their other comments in the profile. Tony's blade comment came 3 minutes after a worried one about China's
+  jets, so it was hope, not a question.
+- Sarcasm and hope look alike in text (even research models mix them up), so when unsure, read it the kinder way.
+
+**Step 2: name the need under the feeling, and answer it.**
+
+| Feeling | Who | What they need from us | Shape |
+| :--- | :--- | :--- | :--- |
+| Pride, hope | Fans, Indians sharing good news | The pride confirmed first | Yes, and why it's big → next step → their opinion |
+| Worry | Indians fearing we're behind | Steady ground | One true reason for hope → what to watch → their view |
+| Hurt pride, anger at India's gaps | Indian critics who care | To be heard, not corrected | Their love named ("only someone who cares gets this angry") → one fact that answers the hurt → their one fix |
+| Curiosity | Experts, students | A real answer, being taken seriously | Answer → a detail → a question only they can answer |
+| Mockery of India | Mostly foreign pile-on accounts | A smile from the readers, not a fight | **Satirical roast** (below) |
+| Hate, slurs | Anyone | Nothing | Hide |
+
+**Step 3: acknowledge, validate, then inform.** Never "I understand, but…": the "but" wipes out the acknowledgement.
+End the thought, start a new sentence.
+
+**The roast, Amul-style.** Wit and wordplay aimed at the **claim**, never cruel to a person, never at a country, race
+or religion. One true, sourced fact is the punchline ("Can't build anything? Then who parked a lander near the
+Moon's south pole?"). One roast per thread; we never answer their comeback. Roast only plain mockery of India;
+a good-faith sceptic gets respect, not a roast. *Why so careful:* a 2022 study found roasting raises engagement but
+lowers persuasion, because readers judge it inappropriate, and practitioners advise small brands to "toast" more than
+they "roast". Our roast is mainly for the Indian readers watching the thread, so it must make them smile, not wince.
+
+**Step 4: the satisfaction test.** Before a draft goes to the owner, write one line on how it should land ("he feels
+his pride was right", "she feels heard and learns one thing"). If the reply doesn't do that, rewrite it.
+
+Sources (2026-10-29): Sewak, Humphrey and Sinha, AMTP Proceedings 2022 (roasting raises engagement, lowers persuasion),
+https://digitalcommons.georgiasouthern.edu/amtp-proceedings_2022/70/ ; Northern Kentucky University, roasting vs
+toasting ; acknowledge-validate-act and the "but" rule from customer-empathy guides (textexpander.com) and validation
+research (arXiv 2402.12770) ; hope vs sarcasm detection (arXiv 2504.17974) ; Amul's gentle topical humour
+(exchange4media.com, storyboard18.com).
+
 ## 3. The comment types
 
 Every comment gets one type. The type decides the action.
@@ -186,8 +228,9 @@ One message per run. Newest videos first; inside a video, the most valuable comm
 ```
 Built on Bharat · <video title> (3 new)
 
-#1 · Expert · @name · 2 h
+#1 · Expert · @name · 2 h · <profile: regular / new, subscribed yes / unknown>
 "<their comment, trimmed to ~300 characters>"
+Feeling: <what they felt when they wrote it> · Lands as: <how it should feel to them> (§2.6)
 → <draft reply>
   source: claims.csv row 14
 
