@@ -100,6 +100,15 @@ our audience is over 45."
   4. **End with a question back** they will want to answer: their guess, their bet, their one fix ("If you ran DRDO
      for a day, what would you fix first?").
   5. 25–60 words. Read it aloud: if it sounds like a narrator, rewrite it as a friend.
+- **Read the feeling under the comment, then answer that (owner, 2026-10-29).** @tonystarc9567 wrote "I read that
+  India successfully built single crystal turbine blade tech..." (trailing dots, right after a worried comment on
+  China's jets): hope, wanting to hear "yes, India did it". Our reply confirmed it, then took the pride away in the
+  next breath ("but for a helicopter engine", the scooter joke) and asked "Where did you read about it?", which a
+  hopeful viewer can hear as "prove it". So: when a viewer brings a proud fact, **give the pride first**, then the
+  next step, then ask for **their opinion, never their source**. Jokes may tease the problem, never shrink an
+  Indian achievement.
+- **Each run checks how posted replies landed:** a like on our reply, the viewer's answer, or silence after 48 hours.
+  Report it in the batch so the voice keeps learning.
 
 ## 3. The comment types
 
