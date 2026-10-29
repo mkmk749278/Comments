@@ -41,6 +41,7 @@ HANDLED_FIELDS = ["comment_id", "channel", "video_id", "author", "type", "langua
                   "decided_at", "note"]
 VIDEOS_HEADER = ("# YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).\n"
                  "# `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.\n")
+EPOCH = dt.datetime(2005, 1, 1, tzinfo=dt.timezone.utc)  # before YouTube: page every thread
 REPLY_LOOKBACK_DAYS = 14  # threads we replied to in this window are re-read for answers to us
 
 
@@ -280,13 +281,56 @@ def all_replies(c: Client, thread_id: str) -> list[dict]:
             return out
 
 
+def public_subscribers(c: Client) -> set[str] | None:
+    """Channel ids of subscribers who keep their subscriptions public (the API shows no others)."""
+    out, page = set(), None
+    try:
+        while True:
+            params = {"part": "subscriberSnippet", "mySubscribers": "true", "maxResults": 50}
+            if page:
+                params["pageToken"] = page
+            r = c.get("subscriptions", **params)
+            out |= {(i.get("subscriberSnippet") or {}).get("channelId") for i in r.get("items", [])}
+            page = r.get("nextPageToken")
+            if not page:
+                return out - {None}
+    except ApiError as e:
+        print(f"!! subscriber list unavailable, every viewer shows as unknown: {e}", file=sys.stderr)
+        return None
+
+
+def viewer_profiles(history: list[dict], subs: set[str] | None) -> dict[str, dict]:
+    """Every commenter's record on the channel, so a draft knows who it is talking to (PLAYBOOK §2.4).
+
+    subscribed is "yes" only when the subscription is public; "unknown" never means "no"."""
+    prof = {}
+    for i in sorted(history, key=lambda i: i["published"] or ""):
+        a = i["author_channel_id"]
+        if not a:
+            continue
+        p = prof.setdefault(a, {"author": i["author"], "comments": 0, "videos": set(), "likes": 0, "held": 0,
+                                "answered_by_us": 0, "first_seen": i["published"], "recent": []})
+        p["comments"] += 1
+        p["videos"].add(i["video_id"])
+        p["likes"] += i["likes"] or 0
+        p["held"] += bool(i["held"])
+        p["answered_by_us"] += bool(i["our_last_reply"]) and not i["after_our_reply"]
+        p["last_seen"] = i["published"]
+        p["recent"] = (p["recent"] + [" ".join((i["text"] or "").split())[:160]])[-3:]
+    for a, p in prof.items():
+        p["videos"] = len(p["videos"] - {None})
+        p["subscribed"] = "yes" if subs and a in subs else "unknown"
+        p["regular"] = p["comments"] >= 3 or p["videos"] >= 2
+    return prof
+
+
 def cmd_fetch(args) -> int:
     rows = handled_rows()
     done = {r["comment_id"] for r in rows}
     since = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=args.days)
     lookback = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=REPLY_LOOKBACK_DAYS)
     videos, chans = load_videos(), load_channels()
-    found, failed = [], []
+    found, failed, profiles = [], [], {}
     signed = clients(args.channel)
     if not signed:
         print("!! no channel signed in; nothing fetched (docs/SETUP.md)", file=sys.stderr)
@@ -297,18 +341,27 @@ def cmd_fetch(args) -> int:
                    and parse_time(r["decided_at"]) >= lookback}
         try:
             items = fetch_channel(c, key, chans[key], done, since, replied)
+            history = fetch_channel(c, key, chans[key], set(), EPOCH, {})
         except ApiError as e:
             failed.append(f"{key}: {e}")
             continue
+        prof = viewer_profiles(history, public_subscribers(c))
+        invited = {r["author"] for r in rows if r["channel"] == key and "sub-ask" in r["note"]}
+        for v in prof.values():
+            v["invited_before"] = v["author"] in invited  # one subscribe invitation per viewer, ever (PLAYBOOK §2.5)
+        profiles[key] = prof
         for i in items:
             v = videos.get(i["video_id"]) or {}
             i["video_title"], i["film"] = v.get("title"), v.get("film")
+            i["viewer"] = prof.get(i["author_channel_id"])
         found += items
     found.sort(key=lambda i: (i["channel"], i["video_id"] or "", i["published"] or ""))
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%MZ")
     out = RUNS / stamp / "new.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(found, ensure_ascii=False, indent=1))
+    # viewer profiles stay in runs/ (gitignored): the repo is public, so who subscribes never goes in git
+    (out.parent / "viewers.json").write_text(json.dumps(profiles, ensure_ascii=False, indent=1))
     per = {}
     for i in found:
         per[(i["channel"], i["video_title"] or i["video_id"])] = per.get((i["channel"], i["video_title"] or

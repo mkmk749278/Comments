@@ -56,6 +56,8 @@ class FakeApi:
             return {"items": items}
         if path == "comments" and method == "POST":
             return {"id": "reply_" + data["snippet"]["parentId"]}
+        if path == "subscriptions":
+            return {"items": [{"subscriberSnippet": {"channelId": "UCviewer"}}]}
         if path == "comments/setModerationStatus":
             return {}
         raise AssertionError(f"unexpected call {url}")
@@ -93,6 +95,10 @@ class YtTest(unittest.TestCase):
         self.assertTrue(ids["r1h"]["held"])
         self.assertEqual(ids["t1"]["our_last_reply"], NOW)  # the channel already answered thread t1
         self.assertIsNone(ids["t3"]["our_last_reply"])
+        v = ids["t1"]["viewer"]  # every fake comment is by UCviewer, a public subscriber
+        self.assertEqual((v["subscribed"], v["regular"], v["answered_by_us"]), ("yes", True, 2))
+        self.assertGreaterEqual(v["comments"], 8)  # history includes t2, already handled
+        self.assertFalse(v["invited_before"])
         self.assertTrue(ids["r1"]["is_reply"])
         self.assertEqual(ids["r1"]["thread_id"], "t1")
         self.assertTrue(ids["held1"]["held"])
