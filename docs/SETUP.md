@@ -22,12 +22,26 @@ You will end with four values, which go into the cloud environment's secrets (st
    "Google hasn't verified this app" warning when you sign in; that is normal for an app only you use.
 
 ## 3. The client
-1. **Clients → Create client** → Application type **Web application**, name `Comments`.
-2. **Authorised redirect URIs → Add URI**: `https://developers.google.com/oauthplayground`
-3. **Create.** Copy the **Client ID** and **Client secret** somewhere private (Google Keep is fine for a minute).
-   These are `YT_CLIENT_ID` and `YT_CLIENT_SECRET`.
+1. **Clients → Create client** → Application type **Desktop app**, name `Comments` → **Create**.
+2. Keep the page open: Termux asks for the **Client ID** and **Client secret** next
+   (`YT_CLIENT_ID` and `YT_CLIENT_SECRET`).
 
-## 4. Sign in once per channel (OAuth Playground)
+## 4. Sign in once per channel: one Termux command
+Paste this in Termux:
+
+```
+pkg install -y python && curl -fsSL -o ~/yt_auth.py https://raw.githubusercontent.com/mkmk749278/Comments/main/scripts/termux_auth.py && python ~/yt_auth.py; rm -f ~/yt_auth.py
+```
+
+It asks for the Client ID and secret (the secret stays hidden while you type), then opens Chrome twice, once per
+channel. Each time: pick your Google account, then **the channel it names** (Built on Bharat first). On the "hasn't
+verified" page: **Advanced → Go to Comments (unsafe) → Continue**. Chrome shows *Done. Go back to Termux.* Termux
+checks which channel signed in (picking the wrong one just asks again) and at the end prints four lines,
+`NAME=value`, ready for step 5. Nothing is saved on the phone.
+
+### 4b. Fallback without Termux (OAuth Playground)
+Only if Termux can't be used: create a second client of type **Web application** with the redirect URI
+`https://developers.google.com/oauthplayground`, and use that client's id and secret here.
 Do this twice: first for **Built on Bharat**, then for **Be Practical with Kishore**.
 
 1. Open **developers.google.com/oauthplayground**.
@@ -46,11 +60,14 @@ Do this twice: first for **Built on Bharat**, then for **Be Practical with Kisho
 1. In the **Claude app**, open a Claude Code session in the `Comments` environment → tap the **environment menu in the
    session's title bar → Edit**.
 2. Under **Network secrets** (or **API credentials**; in older apps, **Environment variables**) add the four names
-   above with their values. Save.
+   with their values (the four `NAME=value` lines Termux printed). Save, then type `clear` in Termux.
 3. Start a **new session** (secrets load when a session starts) and say *"check YouTube access"*. Claude runs
    `scripts/yt.py whoami`, which prints `OK` for each channel when the right channel signed in, without ever showing
    the secrets.
-4. Delete the values from Keep or wherever you copied them.
+4. If you copied the values anywhere else (Keep, notes), delete them.
+
+Steps 1–3 stay in the browser: Google has no command for creating this kind of sign-in client, so those taps can't
+be scripted.
 
 ## If something goes wrong
 - **`BAD … signed in as <other channel>`**: in step 4 the wrong channel was picked. Redo step 4 for that channel and
