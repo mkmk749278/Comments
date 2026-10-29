@@ -204,30 +204,39 @@ def cmd_videos(args) -> int:
     return 0
 
 
-def flatten(c: dict, *, channel: str, thread_id: str, held: bool = False) -> dict:
+def flatten(c: dict, *, channel: str, thread_id: str, held: bool = False, video_id: str | None = None) -> dict:
     s = c["snippet"]
     return {"id": c["id"], "thread_id": thread_id, "is_reply": c["id"] != thread_id, "channel": channel,
-            "video_id": s.get("videoId"), "author": s.get("authorDisplayName"),
+            "video_id": s.get("videoId") or video_id, "author": s.get("authorDisplayName"),
             "author_channel_id": (s.get("authorChannelId") or {}).get("value"),
             "text": s.get("textOriginal") or s.get("textDisplay"), "published": s.get("publishedAt"),
             "likes": s.get("likeCount", 0), "held": held}
 
 
-def fetch_channel(c: Client, key: str, ch: dict, done: set[str], since: dt.datetime, replied_threads: set[str]):
-    own, out = ch["channel_id"], []
+def fetch_channel(c: Client, key: str, ch: dict, done: set[str], since: dt.datetime,
+                  replied_threads: dict[str, str]):
+    own, out, seen = ch["channel_id"], [], set()
 
     def keep(item: dict) -> bool:
         return item["id"] not in done and item["author_channel_id"] != own
 
     def thread_items(t: dict, held: bool) -> list[dict]:
-        top = t["snippet"]["topLevelComment"]
-        items = [flatten(top, channel=key, thread_id=t["id"], held=held)]
+        # replies read through comments.list carry no videoId: take it from the thread
+        top, video = t["snippet"]["topLevelComment"], t["snippet"].get("videoId")
+        items = [flatten(top, channel=key, thread_id=t["id"], held=held, video_id=video)]
         replies = (t.get("replies") or {}).get("comments", [])
         if t["snippet"].get("totalReplyCount", 0) > len(replies):
             replies = all_replies(c, t["id"])
-        items += [flatten(r, channel=key, thread_id=t["id"], held=held) for r in replies]
+        items += [flatten(r, channel=key, thread_id=t["id"], held=held, video_id=video) for r in replies]
+        # the owner also replies by hand in Studio: mark what the channel already answered
+        ours = max((i["published"] or "" for i in items if i["author_channel_id"] == own), default="")
+        for i in items:
+            i["our_last_reply"] = ours or None
+            i["after_our_reply"] = bool(ours) and (i["published"] or "") > ours
         return items
 
+    # a thread holding one held comment comes back in both listings: published goes first, so only the
+    # comments seen in the held listing alone are flagged held
     for status in ("published", "heldForReview"):
         page = None
         while True:
@@ -238,18 +247,22 @@ def fetch_channel(c: Client, key: str, ch: dict, done: set[str], since: dt.datet
             r = c.get("commentThreads", **params)
             threads = r.get("items", [])
             for t in threads:
-                out += [i for i in thread_items(t, status != "published") if keep(i)]
+                for i in thread_items(t, status != "published"):
+                    if keep(i) and i["id"] not in seen:
+                        seen.add(i["id"])
+                        out.append(i)
             page = r.get("nextPageToken")
             oldest = min((parse_time(t["snippet"]["topLevelComment"]["snippet"]["publishedAt"]) for t in threads),
                          default=since)
             if not page or oldest < since:
                 break
     # answers to our own replies on older threads
-    seen = {i["id"] for i in out}
-    for tid in replied_threads:
+    for tid, video in replied_threads.items():
         for r in all_replies(c, tid):
-            item = flatten(r, channel=key, thread_id=tid)
+            item = flatten(r, channel=key, thread_id=tid, video_id=video or None)
+            item["our_last_reply"], item["after_our_reply"] = None, True
             if keep(item) and item["id"] not in seen:
+                seen.add(item["id"])
                 out.append(item)
     return out
 
@@ -279,7 +292,7 @@ def cmd_fetch(args) -> int:
         print("!! no channel signed in; nothing fetched (docs/SETUP.md)", file=sys.stderr)
         return 1
     for key, c in signed.items():
-        replied = {r["note"].split("thread=")[1].split()[0] for r in rows
+        replied = {r["note"].split("thread=")[1].split()[0]: r["video_id"] for r in rows
                    if r["channel"] == key and r["action"] == "replied" and "thread=" in r["note"]
                    and parse_time(r["decided_at"]) >= lookback}
         try:
@@ -303,7 +316,7 @@ def cmd_fetch(args) -> int:
     for (ch, title), n in per.items():
         print(f"{ch} · {title}: {n} new")
     print(f"{len(found)} new comment(s) → {os.path.relpath(out, ROOT)}")
-    unmapped = sorted({i["video_id"] for i in found if not i["film"]})
+    unmapped = sorted({i["video_id"] or "(no video id)" for i in found if not i["film"]})
     if unmapped:
         print(f"videos without a film folder (map them in config/videos.yaml): {' '.join(unmapped)}")
     for f in failed:

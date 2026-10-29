@@ -21,7 +21,7 @@ def comment(cid, text, author="viewer", author_ch="UCviewer", video="VID00000001
 
 
 def thread(tid, text, replies=(), total=None):
-    return {"id": tid, "snippet": {"topLevelComment": comment(tid, text),
+    return {"id": tid, "snippet": {"videoId": "VID00000001", "topLevelComment": comment(tid, text),
                                    "totalReplyCount": len(replies) if total is None else total},
             "replies": {"comments": list(replies)}}
 
@@ -38,7 +38,10 @@ class FakeApi:
         p = dict(urllib.parse.parse_qsl(q))
         if path == "commentThreads":
             if p["moderationStatus"] == "heldForReview":
-                return {"items": [thread("held1", "WhatsApp me for profit +91…")]}
+                # t1 also comes back here: it holds one held reply beside its public ones
+                return {"items": [thread("held1", "WhatsApp me for profit +91…"),
+                                  thread("t1", "Great point on the blades", [comment("r1", "Agree with this"),
+                                                                             comment("r1h", "held reply")])]}
             return {"items": [
                 thread("t1", "Great point on the blades", [comment("r_own", "Thanks", author_ch=OWN),
                                                            comment("r1", "Agree with this")]),
@@ -46,7 +49,11 @@ class FakeApi:
                 thread("t3", "Long thread", [comment("r3a", "first")], total=2),
             ]}
         if path == "comments" and method is None:
-            return {"items": [comment("r3a", "first"), comment("r3b", "second")]}
+            # comments.list replies carry no videoId
+            items = [comment("r3a", "first"), comment("r3b", "second")]
+            for i in items:
+                del i["snippet"]["videoId"]
+            return {"items": items}
         if path == "comments" and method == "POST":
             return {"id": "reply_" + data["snippet"]["parentId"]}
         if path == "comments/setModerationStatus":
@@ -77,8 +84,15 @@ class YtTest(unittest.TestCase):
         return json.loads(next(yt.RUNS.glob("*/new.json")).read_text())
 
     def test_fetch_skips_handled_and_own_and_reads_full_threads(self):
-        ids = {i["id"]: i for i in self.fetched()}
-        self.assertEqual(set(ids), {"t1", "r1", "t3", "r3a", "r3b", "held1"})
+        got = self.fetched()
+        ids = {i["id"]: i for i in got}
+        self.assertEqual(len(got), len(ids), "a comment was listed twice")
+        self.assertEqual(set(ids), {"t1", "r1", "t3", "r3a", "r3b", "held1", "r1h"})
+        self.assertEqual({i["video_id"] for i in got}, {"VID00000001"})
+        self.assertFalse(ids["t1"]["held"] or ids["r1"]["held"])
+        self.assertTrue(ids["r1h"]["held"])
+        self.assertEqual(ids["t1"]["our_last_reply"], NOW)  # the channel already answered thread t1
+        self.assertIsNone(ids["t3"]["our_last_reply"])
         self.assertTrue(ids["r1"]["is_reply"])
         self.assertEqual(ids["r1"]["thread_id"], "t1")
         self.assertTrue(ids["held1"]["held"])
