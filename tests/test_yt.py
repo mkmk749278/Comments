@@ -105,7 +105,7 @@ class YtTest(unittest.TestCase):
 
     def test_post_needs_confirm_then_posts_once_and_logs(self):
         f = self.tmp / "approved.json"
-        f.write_text(json.dumps([{"comment_id": "r1", "thread_id": "t1", "channel": "builtonbharat",
+        f.write_text(json.dumps([{"comment_id": "r1", "thread_id": "t1", "channel": "builtonbharat", "author": "@viewer",
                                   "type": "A", "language": "en", "text": "The blade point is the heart of it."}]))
         self.assertEqual(yt.main(["post", str(f)]), 2)
         self.assertFalse([c for c in self.api.calls if c[2] == "POST"])
@@ -114,6 +114,7 @@ class YtTest(unittest.TestCase):
         posts = [c for c in self.api.calls if c[2] == "POST" and "setModeration" not in c[0]]
         self.assertEqual(len(posts), 1)
         self.assertEqual(posts[0][1]["snippet"]["parentId"], "t1")
+        self.assertTrue(posts[0][1]["snippet"]["textOriginal"].startswith("@viewer "))  # r1 is a reply: handle added
         row = [r for r in yt.handled_rows() if r["comment_id"] == "r1"][0]
         self.assertEqual((row["action"], row["reply_id"]), ("replied", "reply_t1"))
         self.assertIn("thread=t1", row["note"])
