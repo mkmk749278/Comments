@@ -34,7 +34,7 @@ pkg install -y python && curl -fsSL -o ~/yt_auth.py https://raw.githubuserconten
 ```
 
 It asks for the Client ID and secret (the secret stays hidden while you type), then opens Chrome twice, once per
-channel. Each time: pick your Google account, then **the channel it names** (Built on Bharat first). On the "hasn't
+channel. Each time: pick your Google account, then **the channel it names** (Built on Bharat first; Be Practical with Kishore may appear under its old name, **Giggle Patch**). Press Enter in Termux before each sign-in to open Chrome; if it doesn't open, long-press in Termux → More… → Select URL → the last link. On the "hasn't
 verified" page: **Advanced → Go to Comments (unsafe) → Continue**. Chrome shows *Done. Go back to Termux.* Termux
 checks which channel signed in (picking the wrong one just asks again) and at the end prints four lines,
 `NAME=value`, ready for step 5. Nothing is saved on the phone.
