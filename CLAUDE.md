@@ -68,7 +68,7 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - `config/videos.yaml`: YouTube video id → film folder in the film repo (filled from each channel's uploads).
 - `state/handled.csv`: every comment we decided on (one row per comment id). `state/errata.csv`: viewer corrections.
 - `scripts/yt.py`: fetch, post, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
-- `docs/SETUP.md`: the owner's one-time phone setup for YouTube access. `docs/PLAYBOOK.md`: everything else.
+- `docs/SETUP.md`: the owner's one-time phone setup for YouTube access (`scripts/termux_auth.py` does the sign-in in Termux). `docs/PLAYBOOK.md`: everything else.
 - Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BUILTONBHARAT`,
   `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`.
 
