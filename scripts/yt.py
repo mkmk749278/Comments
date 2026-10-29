@@ -6,6 +6,8 @@ Subcommands:
   videos                 add new uploads to config/videos.yaml (film: null until mapped)
   fetch                  write new comments (not yet in state/handled.csv) to runs/<stamp>/new.json
   post FILE --confirm    post owner-approved replies from FILE, log them
+  edit --channel C --reply ID --text T --confirm
+                         replace the text of one of our posted replies (owner-approved), note it in the log
   hide --channel C --comment ID [--ban] --confirm
                          reject a comment (hidden from the public); --ban hides the author from the channel
   record ...             log a decision that posts nothing (skipped, heart, pin, held)
@@ -414,6 +416,31 @@ def cmd_post(args) -> int:
     return 1 if bad else 0
 
 
+def cmd_edit(args) -> int:
+    if not args.confirm:
+        print("Refusing to edit without --confirm (only owner-approved text goes up).", file=sys.stderr)
+        return 2
+    rows = handled_rows()
+    mine = [r for r in rows if r["reply_id"] == args.reply]
+    if not mine:
+        print(f"!! {args.reply}: not one of our logged replies", file=sys.stderr)
+        return 1
+    text = args.text.strip()
+    if not text or len(text) > 9000:
+        print(f"!! {args.reply}: empty or too long", file=sys.stderr)
+        return 1
+    c = Client(args.channel)
+    http_json(API + "comments?part=snippet", data={"id": args.reply, "snippet": {"textOriginal": text}},
+              token=c.token, method="PUT")
+    mine[0]["note"] = f"{mine[0]['note']} edited {now_iso()}".strip()
+    header = HANDLED.read_text(encoding="utf-8").splitlines(keepends=True)[0]  # keep its line ending
+    with HANDLED.open("w", newline="", encoding="utf-8") as f:
+        f.write(header)
+        csv.DictWriter(f, fieldnames=HANDLED_FIELDS).writerows(rows)
+    print(f"edited {args.reply}")
+    return 0
+
+
 def cmd_hide(args) -> int:
     if not args.confirm:
         print("Refusing to hide without --confirm (owner decides).", file=sys.stderr)
@@ -457,6 +484,11 @@ def main(argv=None) -> int:
     s.set_defaults(fn=cmd_fetch)
     s = sub.add_parser("post"); s.add_argument("file"); s.add_argument("--confirm", action="store_true")
     s.set_defaults(fn=cmd_post)
+    s = sub.add_parser("edit")
+    for a in ("--channel", "--reply", "--text"):
+        s.add_argument(a, required=True)
+    s.add_argument("--confirm", action="store_true")
+    s.set_defaults(fn=cmd_edit)
     s = sub.add_parser("hide")
     for a in ("--channel", "--comment"):
         s.add_argument(a, required=True)

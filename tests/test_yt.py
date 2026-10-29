@@ -56,6 +56,8 @@ class FakeApi:
             return {"items": items}
         if path == "comments" and method == "POST":
             return {"id": "reply_" + data["snippet"]["parentId"]}
+        if path == "comments" and method == "PUT":
+            return {"id": data["id"]}
         if path == "subscriptions":
             return {"items": [{"subscriberSnippet": {"channelId": "UCviewer"}}]}
         if path == "comments/setModerationStatus":
@@ -119,6 +121,21 @@ class YtTest(unittest.TestCase):
         self.assertEqual((row["action"], row["reply_id"]), ("replied", "reply_t1"))
         self.assertIn("thread=t1", row["note"])
         self.assertNotIn("r1", {i["id"] for i in self.fetched()})
+
+    def test_edit_needs_confirm_and_only_our_logged_replies(self):
+        yt.append_handled({"comment_id": "r1", "channel": "builtonbharat", "action": "replied", "reply_id": "rep1",
+                           "note": "thread=t1"})
+        args = ["edit", "--channel", "builtonbharat", "--reply", "rep1", "--text", "Shorter, warmer."]
+        self.assertEqual(yt.main(args), 2)
+        self.assertEqual(yt.main(["edit", "--channel", "builtonbharat", "--reply", "nope", "--text", "x",
+                                  "--confirm"]), 1)
+        self.assertEqual(yt.main(args + ["--confirm"]), 0)
+        puts = [c for c in self.api.calls if c[2] == "PUT"]
+        self.assertEqual(len(puts), 1)
+        self.assertEqual(puts[0][1], {"id": "rep1", "snippet": {"textOriginal": "Shorter, warmer."}})
+        row = [r for r in yt.handled_rows() if r["reply_id"] == "rep1"][0]
+        self.assertIn("edited", row["note"])
+        self.assertIn("t2", {r["comment_id"] for r in yt.handled_rows()})  # rewrite keeps every other row
 
     def test_hide_and_record(self):
         self.assertEqual(yt.main(["hide", "--channel", "builtonbharat", "--comment", "held1"]), 2)

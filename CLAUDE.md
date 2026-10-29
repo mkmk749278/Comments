@@ -56,6 +56,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - **Owner's voice directive (2026-10-29):** India first, with pride and respect; human nature above all; humour,
   warmth and gentle satire; the simplest words, because most of our viewers are over 45. A wrong point in our film is
   checked against sources and owned plainly (PLAYBOOK §2.5).
+- **Answer what they actually said, at its size (owner, 2026-10-29; PLAYBOOK §2.7):** a short compliment gets one or two
+  short warm lines with a smile, not a film fact; digits for numbers; one voice ("we").
 - Short and human: most replies 1–3 sentences; experts and corrections get up to ~80 words. No hype words, no
   "Incredible!", no "man/bro/yaar".
 
@@ -76,7 +78,7 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - `config/channels.yaml`: the two channels, their film repos, voice and language rules.
 - `config/videos.yaml`: YouTube video id → film folder in the film repo (filled from each channel's uploads).
 - `state/handled.csv`: every comment we decided on (one row per comment id). `state/errata.csv`: viewer corrections.
-- `scripts/yt.py`: fetch, post, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
+- `scripts/yt.py`: fetch, post, edit, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
 - `docs/SETUP.md`: the owner's one-time phone setup for YouTube access (`scripts/termux_auth.py` does the sign-in in Termux). `docs/PLAYBOOK.md`: everything else.
 - Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BUILTONBHARAT`,
   `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`.
