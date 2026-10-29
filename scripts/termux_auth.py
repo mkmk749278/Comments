@@ -20,7 +20,9 @@ import urllib.request
 
 CHANNELS = {  # channel id -> secret name (config/channels.yaml)
     "UCgmnU_XgFuGD2MejCDmAnbA": ("Built on Bharat", "YT_REFRESH_TOKEN_BUILTONBHARAT"),
-    "UCPn8z0XQ2ykv3Rt_Oexn9wQ": ("Be Practical with Kishore", "YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE"),
+    # Google's account chooser may still show this channel's old name, Giggle Patch (owner, 2026-10-29).
+    "UCPn8z0XQ2ykv3Rt_Oexn9wQ": ("Be Practical with Kishore (old name: Giggle Patch)",
+                                 "YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE"),
 }
 SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
 AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
@@ -76,6 +78,7 @@ def sign_in(client_id, client_secret, label):
     print(f"\n=== {label} ===")
     print("Opening the browser. Pick your Google account, then THE CHANNEL for this round.")
     print("On 'Google hasn't verified this app': Advanced -> Go to Comments (unsafe) -> Continue.")
+    input("Press Enter to open Chrome...")
     try:
         subprocess.run(["termux-open-url", url], check=False)
     except FileNotFoundError:
