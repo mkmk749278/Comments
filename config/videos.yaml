@@ -1,11 +1,31 @@
 # YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).
 # `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.
 videos:
+  7UNLVl2yrwI:
+    channel: bepracticalwithkishore
+    film: projects/health-claim-trap
+    published: '2026-10-15'
+    title: Cashless Claim Denied? The 5-Year IRDAI Rule Agents Never Tell You | Be Practical With Kishore
   I_udRtf5Rng:
     channel: bepracticalwithkishore
     film: projects/jet-engine-bet
     published: '2026-10-28'
     title: 30 Tejas Jets Are Ready. Why Can't They Fly?
+  Kzvky2ETV5E:
+    channel: bepracticalwithkishore
+    film: projects/upi-money-deducted
+    published: '2026-10-21'
+    title: UPI Payment Failed, But Money Deducted? Where Your Money Really Goes | Be Practical With Kishore
+  N8n0ymPhTK8:
+    channel: bepracticalwithkishore
+    film: projects/minimum-due
+    published: '2026-10-13'
+    title: 'Credit Card Minimum Amount Due: The Interest Trap Explained | Be Practical with Kishore'
+  SRs_3plsOLo:
+    channel: bepracticalwithkishore
+    film: projects/cant-pay-minimum
+    published: '2026-10-14'
+    title: Can’t Pay Your Credit Card Minimum Due? What Happens Next | Be Practical With Kishore
   _4G7-vTadZQ:
     channel: bepracticalwithkishore
     film: projects/jet-engine-paradox
@@ -23,6 +43,13 @@ videos:
     note: two uploads of the jet-engine-paradox film; check which cut each is before quoting timestamps
     published: '2026-10-18'
     title: India Reached the Moon. Why Can't It Build a Jet Engine? | Be Practical With Kishore
+  mh1rfSrl6fA:
+    channel: bepracticalwithkishore
+    film: null
+    note: 'uploaded 2026-10-03, before the Creator repo existed: no film folder or claims.csv; answer only from what the title
+      says, or not at all'
+    published: '2026-10-03'
+    title: Can't Pay Your Credit Card Bill? Know Your Rights in India | English
   pDC78qQUWcc:
     channel: bepracticalwithkishore
     film: episodes/india-semiconductor-gamble

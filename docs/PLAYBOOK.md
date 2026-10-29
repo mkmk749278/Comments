@@ -162,7 +162,9 @@ left unposted and stays in the next batch once, then is logged as skipped.
 - Read it aloud in your head as the narrator: warm, short, human. Not a teacher, not a press release.
 
 ### 5.4 Cadence
-- **Normal:** two runs a day, around 1 pm and 9 pm IST (the evening run catches the 6:30–10:30 pm viewing wave).
+- **Normal:** two runs a day, around 1 pm and 9 pm IST (the evening run catches the 6:30–10:30 pm viewing wave). The
+  scheduled task (owner, 2026-10-29) fires at 12:47 and 21:41 IST, each in a fresh cloud session that runs §5.1 and
+  brings the batch to the owner in that session's chat. Off-minute times dodge the busy top of the hour.
 - **Launch window (first 48 hours after an upload):** extra runs at about 1, 3 and 8 hours after the video goes public.
   Early replies matter most: they set the tone of the thread.
 - Runs share the usage limit with video work; when the owner is mid-render, skip a normal run rather than starve it.
@@ -172,7 +174,7 @@ left unposted and stays in the next batch once, then is logged as skipped.
 | :--- | :--- | :--- |
 | Check access | `python3 scripts/yt.py whoami` | `OK` per channel when its token signs in as the right channel. |
 | New uploads | `python3 scripts/yt.py videos` | Adds new video ids to `config/videos.yaml` with `film: null` (public feed, latest 15; `--api` lists every upload). Map each to its film folder by title before drafting. |
-| Fetch | `python3 scripts/yt.py fetch` | Writes `runs/<stamp>/new.json` (gitignored): new comments and replies not in `state/handled.csv`, our own excluded, YouTube's held-for-review queue flagged `held: true`, plus new answers under threads we replied to in the last 14 days. `--days` sets how far back to page (default 7). |
+| Fetch | `python3 scripts/yt.py fetch` | Writes `runs/<stamp>/new.json` (gitignored): new comments and replies not in `state/handled.csv`, our own excluded, YouTube's held-for-review queue flagged `held: true`, plus new answers under threads we replied to in the last 14 days. Each comment carries `our_last_reply` (when the channel last replied in that thread, also by hand in Studio) and `after_our_reply`. `--days` sets how far back to page (default 7). |
 | Post | `python3 scripts/yt.py post approved.json --confirm` | Only after the owner's approval. JSON list of `{comment_id, thread_id, channel, video_id, author, type, language, text}`. Replies go under the thread (YouTube has one level of replies); to answer a reply, start the text with `@their-handle`. Already-replied ids are skipped, so a re-run never double-posts. |
 | Hide | `python3 scripts/yt.py hide --channel C --comment ID [--ban] --confirm` | Rejects the comment (gone from public view). `--ban` also hides the author from the channel. Owner's call only. |
 | Log | `python3 scripts/yt.py record --channel C --comment ID --action skipped\|heart\|pin\|heart+pin\|held\|no-reply` | Every comment in a batch gets a row, posted or not. |
@@ -182,6 +184,22 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
 
 `config/videos.yaml` notes: the two Moon/jet-engine uploads (`_4G7-vTadZQ`, `m4h_2gXESp0`) both map to
 `projects/jet-engine-paradox`; check which cut each is before quoting a timestamp.
+
+### 5.6 Lessons from the first run (2026-10-29)
+- **The owner also replies by hand in Studio.** Before this repo, most top-level comments already had a channel reply.
+  `fetch` now marks `our_last_reply` / `after_our_reply` on every comment: draft only for threads with no channel reply
+  and for viewer replies posted after ours, so we never answer twice or contradict a hand reply. The first run logged
+  the 64 already-answered comments as `no-reply`.
+- **Hand replies broke a few rules** (subscribe asks, numbers from memory such as toilet and tap-water counts). They
+  stay as they are; new replies go through the batch so every fact has a row.
+- **Pile-ons from foreign accounts** (the rare-earth film drew dozens of "toilets", "brag" and racist one-liners): no
+  reply to any of them. Hide slurs and racist or sexist lines; leave plain mockery alone; never step into
+  viewer-against-viewer fights, even when a viewer defends India rudely. Reply to the few real arguments with one
+  sourced fact.
+- **Two fetch bugs fixed:** replies read through `comments.list` carry no `videoId` (now taken from the thread), and a
+  thread holding one held comment came back in both listings (now listed once; only comments seen in the held listing
+  alone are `held`).
+- **Uploads older than the film repo** (`mh1rfSrl6fA`, 2026-10-03) have no `claims.csv`: heart or a non-factual reply only.
 
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
