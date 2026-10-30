@@ -189,6 +189,28 @@ formation." So:
   keep coming here, so do subscribe if you haven't already." One short line at the end, everyday words.
 - **Stop when the point has landed.** Fact plus smile is often the whole reply.
 
+**Third lesson: smart talk, not technicals (owner, 2026-10-30).** On the batch of 30 Oct: "Replies look like robotic.
+Not so much interactive. Be natural. To satisfy audience we no need to go depth into technicals, and with smart talks
+we can." The drafts recited the film (engine counts, "HAL's chief said in September", tank stages) and had a source
+line under each one. So:
+- **Talk like a friend at the tea stall,** not like someone reading out a report. React to the person, add one light
+  line, and stop.
+- **Technical depth only when it's asked for.** A viewer who brings numbers wants to be agreed with smartly, not shown
+  more numbers. One simple fact at most, said in everyday words, and only if it lands the point.
+- **Wit beats detail.** A quick comeback or a picture from daily life ("the milkman can't promise that much purity")
+  satisfies more than a correct paragraph.
+- **No source lines in the batch.** The session still checks every fact against claims.csv.
+- **The joke must fit the point (owner, same day: "still missing sense of humor with un logical examples").** "A new
+  car waiting for its number plate" or "the cooker gave three whistles and nobody switched off the stove" were
+  pictures that didn't match what the viewer said. A good joke maps one-to-one onto their point: blaming only the
+  engine → "a student blaming the pen for the whole exam"; endless delays → "the time printed on a wedding card".
+  Test: could the viewer explain why it's funny in one line? If not, cut it.
+- **Never joke at India's expense (owner, same day: "With this we are simply roasting our India. Always keep Indian
+  emotions. If anyone roasts, we roast him, but ourselves we should not do").** "Government files move faster", "HAL's
+  dog ate my homework", "India is still on its first dosas" all laughed at India. Humour points outward or at the
+  situation, never at India, its institutions or its people. An Indian critic gets their love named and the pride of
+  what's ours ("Tejas is our own jet"); only someone mocking India gets roasted, with India's pride as the punchline.
+
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
 
@@ -272,7 +294,6 @@ Built on Bharat · <video title> (3 new)
 "<their comment, trimmed to ~300 characters>"
 Feeling: <what they felt when they wrote it> · Lands as: <how it should feel to them> (§2.6)
 → <draft reply>
-  source: claims.csv row 14
 
 #2 · Joker · @name · 5 h
 "<comment>"
@@ -293,7 +314,8 @@ Owner replies, for example: `approve 1,3` · `2: <new text>` · `skip 2` · `all
 left unposted and stays in the next batch once, then is logged as skipped.
 
 ### 5.3 Checks before a draft reaches the owner
-- Every fact traces to a source shown under the draft. No fact without a source.
+- Every fact traces to a source the session checked. No fact without a source. The batch shows no source lines
+  (owner, 2026-10-30); the claims row ids go in the `state/handled.csv` note when the reply is posted.
 - No banned phrase (§4), no link, no Hindi tag on Built on Bharat. A subscribe invitation only as §2.5 allows.
 - The viewer's profile (§2.4) was read, and the reply fits who they are.
 - Language matches the commenter (Be Practical with Kishore) or is English (Built on Bharat).
