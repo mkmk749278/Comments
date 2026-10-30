@@ -200,6 +200,11 @@ line under each one. So:
 - **Wit beats detail.** A quick comeback or a picture from daily life ("the milkman can't promise that much purity")
   satisfies more than a correct paragraph.
 - **No source lines in the batch.** The session still checks every fact against claims.csv.
+- **The joke must fit the point (owner, same day: "still missing sense of humor with un logical examples").** "A new
+  car waiting for its number plate" or "the cooker gave three whistles and nobody switched off the stove" were
+  pictures that didn't match what the viewer said. A good joke maps one-to-one onto their point: blaming only the
+  engine → "a student blaming the pen for the whole exam"; endless delays → "the time printed on a wedding card".
+  Test: could the viewer explain why it's funny in one line? If not, cut it.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
