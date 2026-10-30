@@ -379,6 +379,20 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
   alone are `held`).
 - **Uploads older than the film repo** (`mh1rfSrl6fA`, 2026-10-03) have no `claims.csv`: heart or a non-factual reply only.
 
+### 5.7 Lessons from 2026-10-30
+- **Four rounds of redrafts on one batch.** The voice rules this taught are in §2.7: no source lines in the batch,
+  smart talk over technicals, jokes that fit the point, never joke at India's expense, a suggestion gets thanks, and
+  each comment is its own conversation. Read §2.7 before drafting, and check the batch against it as a whole.
+- **Review of posted replies (owner-authorised, same day).** All 24 posted replies were re-read against those rules;
+  12 were edited in place with `yt.py edit`. What we changed: quiz questions, a joke stacked with a question stacked
+  with a subscribe line, "my" for "we", jokes that put India down, and praise for a jab at India.
+- **Don't edit a reply the viewer has already answered.** Their answer would then reply to words that are no longer
+  there. Leave it, and do better in the next reply.
+- **An edit can only remove or rephrase a checked fact.** "The first one ever there" (Chandrayaan-3) had no row, so
+  the review dropped it. The same fact rule applies to edits as to new replies.
+- **`yt.py videos` without `--api`:** the public uploads feed returned 404 for Built on Bharat; `--api` worked. Use
+  `--api` when the feed fails.
+
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
    memory.
