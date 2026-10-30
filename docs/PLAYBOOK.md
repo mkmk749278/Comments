@@ -210,6 +210,21 @@ line under each one. So:
   dog ate my homework", "India is still on its first dosas" all laughed at India. Humour points outward or at the
   situation, never at India, its institutions or its people. An Indian critic gets their love named and the pride of
   what's ours ("Tejas is our own jet"); only someone mocking India gets roasted, with India's pride as the punchline.
+- **A suggestion gets thanks, not a joke (owner, same day: "he suggested but our reply seems like we roasted
+  him").** @NECATR4D, a senior viewer writing formally, suggested a railway expert. "Then we'd better bring our
+  swimming costume" played with his words and brushed off the tip. A viewer who offers help gets thanked first and
+  their help taken seriously; match their register (formal for formal), and keep the joke out unless they joked.
+- **Each comment is its own conversation (owner, same day).** "We need to know what he actually is for our channel,
+  how kind he is towards our videos… no need to keep jokes for everyone. Treat each comment differently, not summing
+  up all, treating all the same." The 30 Oct batch put a 😄 joke in all six replies, one recipe for six people. So:
+  - Before drafting, write down who this viewer is to us (§2.4): a kind regular, a first-time fan, a senior who
+    writes formally, an informed critic, someone mocking India. The reply is written for that person.
+  - Pick the shape for that person: thanks, a warm line, a plain answer, the pride of what's ours, or (only for
+    those mocking India) a roast. A joke is one option among these, used only where it fits; most replies in a batch
+    should have none.
+  - The film already carries the technical detail. A reply talks naturally and adds a fact only when it is missing
+    from the film and the viewer needs it.
+  - Read the batch at the end: if two replies have the same shape or the same kind of joke, rewrite one.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
