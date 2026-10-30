@@ -210,6 +210,10 @@ line under each one. So:
   dog ate my homework", "India is still on its first dosas" all laughed at India. Humour points outward or at the
   situation, never at India, its institutions or its people. An Indian critic gets their love named and the pride of
   what's ours ("Tejas is our own jet"); only someone mocking India gets roasted, with India's pride as the punchline.
+- **A suggestion gets thanks, not a joke (owner, same day: "he suggested but our reply seems like we roasted
+  him").** @NECATR4D, a senior viewer writing formally, suggested a railway expert. "Then we'd better bring our
+  swimming costume" played with his words and brushed off the tip. A viewer who offers help gets thanked first and
+  their help taken seriously; match their register (formal for formal), and keep the joke out unless they joked.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
