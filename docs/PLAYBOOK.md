@@ -205,6 +205,11 @@ line under each one. So:
   pictures that didn't match what the viewer said. A good joke maps one-to-one onto their point: blaming only the
   engine → "a student blaming the pen for the whole exam"; endless delays → "the time printed on a wedding card".
   Test: could the viewer explain why it's funny in one line? If not, cut it.
+- **Never joke at India's expense (owner, same day: "With this we are simply roasting our India. Always keep Indian
+  emotions. If anyone roasts, we roast him, but ourselves we should not do").** "Government files move faster", "HAL's
+  dog ate my homework", "India is still on its first dosas" all laughed at India. Humour points outward or at the
+  situation, never at India, its institutions or its people. An Indian critic gets their love named and the pride of
+  what's ours ("Tejas is our own jet"); only someone mocking India gets roasted, with India's pride as the punchline.
 
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
