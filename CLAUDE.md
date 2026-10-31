@@ -62,6 +62,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - **Each comment is its own conversation (owner, 2026-10-30; PLAYBOOK §2.7):** know who the viewer is to us and how
   kind they've been, then write for that person. Natural talk, not technicals (the film carries those). Jokes only
   where they fit, never in every reply; never joke at India's expense; roast only someone mocking India.
+- **Conversational, not technical (owner, 2026-10-31; PLAYBOOK §5.8):** react to their words first, keep any fact
+  small and plain (no test names, figures or years unless needed), end on a punchy line or a friend's question.
 - Short and human: most replies 1–3 sentences; experts and corrections get up to ~80 words. No hype words, no
   "Incredible!", no "man/bro/yaar".
 

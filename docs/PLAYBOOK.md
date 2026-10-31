@@ -393,6 +393,26 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
 - **`yt.py videos` without `--api`:** the public uploads feed returned 404 for Built on Bharat; `--api` worked. Use
   `--api` when the feed fails.
 
+### 5.8 Lessons from 2026-10-31
+- **First drafts still too technical (owner: "Missing the conversational tone, I mean more interactive rather than
+  more technical").** The drafts were correct and sourced but read like short reports: "the radar and weapons work is
+  still being finished… Rolls-Royce and Reliance announced plans", "its dry version beat its thrust target in tests in
+  Russia", "hundreds of tanks in a row". The rewrites the owner approved talk to the person first and keep the fact
+  small and plain:
+  - Before: "You've hit the real point… Its dry version beat its thrust target in tests in Russia, and it has been
+    chosen to power our planned Ghatak stealth drone." After: "…That's exactly what Kaveri was for us. It never made it
+    into Tejas, but its newer version now beats its own target. Slow, yes. Wasted, no."
+  - Before: "Exactly, you've said the whole film in one line. Digging is easy. Getting just one clean element out can
+    take hundreds of tanks in a row." After: "Exactly! Anyone can dig. Cleaning it up is the real exam."
+  - Before: "Because your mom has years of practice… China has a head start of over 30 years… a ₹7,280 crore magnet
+    scheme on the stove." After: "Because mom didn't learn it in one day. She burnt a few rotis first! India has the
+    ingredients too, and now we're learning the recipe."
+- **So, for every draft:** open with a reaction to their words ("'White elephant' is strong, sir!", "Ha, the
+  lunch-break theory!"); no names of tests, places, figures or years unless the reply falls apart without them; end on
+  a short punchy line ("Slow, yes. Wasted, no.") or a friend's question, not a fact. Test: would you say it out loud
+  to this person over tea? If it needs a source tag to make sense, it's too technical.
+- **First-run drafts now aim at this tone straight away**, so the owner doesn't have to send them back.
+
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
    memory.
