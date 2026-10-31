@@ -412,6 +412,10 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
   a short punchy line ("Slow, yes. Wasted, no.") or a friend's question, not a fact. Test: would you say it out loud
   to this person over tea? If it needs a source tag to make sense, it's too technical.
 - **First-run drafts now aim at this tone straight away**, so the owner doesn't have to send them back.
+- **A comment fell out of the batch (owner spotted it in Studio: "Why this is still there").** `fetch` returned 16
+  comments; the batch showed 15. @abvar27's "India will eventually make it" was never drafted or logged. So, before
+  sending a batch: **count it**. Drafts + no-reply/heart lines must equal the `fetch` count, and the batch says so
+  ("16 fetched: 11 drafts, 5 no reply"). After posting, every fetched id must have a row in `state/handled.csv`.
 
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
