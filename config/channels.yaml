@@ -1,4 +1,4 @@
-# The two channels this repo answers for. Channel ids read from each channel page (2026-10-29).
+# The channels this repo answers for. Channel ids read from each channel page (2026-10-29).
 channels:
   builtonbharat:
     name: Built on Bharat
@@ -16,3 +16,14 @@ channels:
     film_dirs: [projects, episodes]
     reply_language: match         # match the commenter: te / Tenglish / en (owner, 2026-10-29; PLAYBOOK §2.2)
     voice: docs/PLAYBOOK.md#22-be-practical-with-kishore
+  # The Mechanical Paradox (owner, 2026-11-03): switched on when its first film is public (PLAYBOOK §7.1).
+  # scripts/yt.py reads every entry, so the entry stays commented out until it has a real channel_id and the owner
+  # has signed in once (secret YT_REFRESH_TOKEN_THEMECHANICALPARADOX).
+  # themechanicalparadox:
+  #   name: The Mechanical Paradox
+  #   handle: "@themechanicalparadox"
+  #   channel_id: <read from the channel page at launch>
+  #   film_repo: mkmk749278/The-Mechanical-Paradox
+  #   film_dirs: [films]
+  #   reply_language: en          # English always, simple international English (PLAYBOOK §2.2a)
+  #   voice: docs/PLAYBOOK.md#22a-the-mechanical-paradox

@@ -1,6 +1,8 @@
 # Comments playbook
 
-The full reply strategy for **Built on Bharat** and **Be Practical with Kishore**. `CLAUDE.md` holds the hard rules;
+The full reply strategy for **Built on Bharat** and **Be Practical with Kishore**, and for **The Mechanical Paradox**
+from its first film (owner, 2026-11-03; §2.2a, §7.1). Each channel keeps its own voice: never carry one channel's tone,
+jokes or framing into another's replies. `CLAUDE.md` holds the hard rules;
 this file holds the how and the why. Owner directives are dated. Add lessons here, with the reason, never in new files.
 
 Source: the owner's *YouTube Comment Management & Community Architecture Playbook* (2026-10-29), kept where it is right
@@ -46,7 +48,27 @@ Four traits for every reply, from the owner's document:
 - Money, health and legal topics: general information from the film only; never personal advice, no buy/sell calls,
   point to the verified helpline or authority the film named.
 
-### 2.3 Both channels
+### 2.2a The Mechanical Paradox (owner, 2026-11-03)
+- **Who comments:** curious adults, students and engineers from everywhere (US, UK, Canada, Australia, Germany, India
+  and beyond), many reading in their second language. Physics threads attract confident experts and confident wrong
+  answers in equal measure.
+- **The voice:** the curious engineer at the next desk. Plain international English that a non-native speaker reads
+  easily, American spelling (as on the channel's screen), short sentences. Peer level with an expert, patient with a
+  student, never a lecture. The same physics-first voice as the film (The-Mechanical-Paradox PLAYBOOK §7), shorter.
+- **Explain in one plain sentence,** then, if it helps, point to the moment in the film that shows it ("At 2:40 the
+  cone does exactly that."). Exact names welcome where the commenter used them (creep, slip ratio, von Mises).
+- **No false absolutes, here too:** "never", "always", "cannot" need a source; trains do derail, lifts have fallen. A
+  safety worry gets the sourced number from the film, calmly, never fear and never false comfort.
+- **Physics disputes** ("it's centrifugal force", "Bernoulli is wrong"): agree with what is right, give the mechanism
+  the film's sources support, and leave room ("Both pictures meet at the contact patch."). Never win, never mock.
+- **A wrong point in our film** is checked against the film's sources and owned plainly (§6), like the other channels.
+- **Not this channel's tone:** India-pride framing, "Jai Hind", regional slang ("yaar", "mate", "y'all", "innit"),
+  hype ("mind-blowing"). India is home, never a lecture topic; examples come from everywhere.
+- **English replies always;** a comment in another language gets a short, simple English reply.
+- **Facts only from the film's `claims.csv`** (`mkmk749278/The-Mechanical-Paradox`, `films/<slug>/`), like every
+  channel.
+
+### 2.3 Every channel
 - **Length:** most replies 1–3 sentences. Experts and corrections may run to ~80 words. Jokes: 1–2 sentences.
 - **Start with their point**, not with praise. "The scale gap you mention is the heart of it…" beats "What an
   exceptional breakdown!".
@@ -438,6 +460,17 @@ Example shape (facts must come from the film):
 
 KPIs per release (a guide, not a target): opening comment pinned at launch; the first thoughtful comments answered in
 the first few hours; the best viewer comment pinned by hour 8; every correct correction acknowledged; spam hidden.
+
+For The Mechanical Paradox the opening comment is the paradox and a two-sided physics question, in plain English:
+> [The broken intuition from the film, one line]. So what does the real work: [mechanism A] or [mechanism B]?
+
+### 7.1 Switching on a new channel (The Mechanical Paradox, owner 2026-11-03)
+When its first film is public: (1) read its channel id from the channel page and uncomment its entry in
+`config/channels.yaml`; (2) the owner signs in once on the phone (`docs/SETUP.md`, key `themechanicalparadox`,
+secret `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`); (3) add its videos to `config/videos.yaml`; (4) add the channel to
+`docs/PRIVACY.md` and `docs/SETUP.md`; (5) run `tests/` offline and one `fetch`; (6) the normal two runs a day cover
+it, plus the launch-window runs (§5.4) at 1, 3 and 8 hours after each film goes public. Its blueprint's "10–15 peer
+responses in hours 0–2" means genuine replies to real comments only, never seeded engagement.
 
 ## 8. What we changed from the owner's document, and why (2026-10-29)
 - **Template numbers removed.** The document's examples carried figures with no sources (workforce counts, plant
