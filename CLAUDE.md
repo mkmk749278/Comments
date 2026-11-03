@@ -20,10 +20,13 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 ## The loop (PLAYBOOK §5)
 1. **Fetch** new comments from every switched-on channel (`scripts/yt.py fetch`). Skip every comment id already in
    `state/handled.csv`.
-2. **Sort** each comment into one of the seven types (PLAYBOOK §3) and decide: reply, heart only, or hide.
+2. **One at a time (owner, 2026-11-03; PLAYBOOK §5.9):** video by video, comment by comment, never all together.
+   For each comment read the comment, its whole thread, the viewer and their intention, then sort it into one of the
+   seven types (PLAYBOOK §3) and decide: reply, heart only, or hide. Finish it before reading the next.
 3. **Draft** replies grounded in the film's own sourced files (its `claims.csv`, script, research, review notes).
 4. **Send the batch in the Claude chat** (format in PLAYBOOK §5.2): numbered comments with drafts, plus the Studio
-   list (heart / pin / hide), which the API cannot do.
+   list (heart / pin / hide), which the API cannot do. If the owner says in the session to post one by one, that is
+   his approval for that session: post each checked reply as it is written, then report (PLAYBOOK §5.9).
 5. **Post only what the owner approved**, exactly as approved or edited. Log every decision in `state/handled.csv`.
 6. **Corrections** a viewer gets right go into `state/errata.csv` and are reported to the owner so the film repo learns.
 
