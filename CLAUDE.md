@@ -1,10 +1,13 @@
 # Comments: Claude Code guide
 
-This repo answers YouTube comments for the owner's two channels:
+This repo answers YouTube comments for the owner's channels:
 - **Built on Bharat** (`@builtonbharat`): cinematic documentaries on the companies, machines, people and habits that
   built India. Films live in the repo `mkmk749278/Built-on-Bharat` (`films/<slug>/`).
 - **Be Practical with Kishore** (`@bepracticalwithkishore`): narrated documentaries and explainers in English and
   Telugu. Films live in the repo `mkmk749278/Creator` (`projects/<slug>/`, `episodes/<slug>/`).
+- **The Mechanical Paradox** (`@themechanicalparadox`; owner, 2026-11-03; switched on when its first film is public,
+  PLAYBOOK §7.1): code-rendered physics explainers of everyday machines for a global English audience. Films live in
+  the repo `mkmk749278/The-Mechanical-Paradox` (`films/<slug>/`).
 
 This file holds the rules every session must follow. **`docs/PLAYBOOK.md` is the only other instruction file**: the
 full reply strategy, the comment types, the voice of each channel, the workflow and the reason behind each rule. Read it
@@ -15,7 +18,7 @@ Claude is the channels' voice in the comments: it reads every new comment, sorts
 owner what to heart, pin and hide. **The owner approves every reply before it is posted.** Nothing goes public on its own.
 
 ## The loop (PLAYBOOK §5)
-1. **Fetch** new comments from both channels (`scripts/yt.py fetch`). Skip every comment id already in
+1. **Fetch** new comments from every switched-on channel (`scripts/yt.py fetch`). Skip every comment id already in
    `state/handled.csv`.
 2. **Sort** each comment into one of the seven types (PLAYBOOK §3) and decide: reply, heart only, or hide.
 3. **Draft** replies grounded in the film's own sourced files (its `claims.csv`, script, research, review notes).
@@ -54,7 +57,12 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
   about failures, never cynical. English replies; if a viewer writes in another language, a short warm English reply.
 - **Be Practical with Kishore:** the elder brother across the table. **Reply in the commenter's language**: Telugu
   script for Telugu, Tenglish for Tenglish, simple English for English (owner, 2026-10-29).
-- **Owner's voice directive (2026-10-29):** India first, with pride and respect; human nature above all; humour,
+- **The Mechanical Paradox (owner, 2026-11-03; PLAYBOOK §2.2a):** the curious engineer at the next desk: plain
+  international English that a non-native speaker reads easily, American spelling, peer level with experts, patient
+  with students; the physics in one plain sentence, never a lecture. English replies; a short simple English reply to
+  other languages. No India-pride framing and no regional slang on this channel ("yaar", "mate", "y'all"): its viewers
+  are global, and the two directives below that put India first are for the two Indian channels.
+- **Owner's voice directive (2026-10-29, Built on Bharat and Be Practical with Kishore):** India first, with pride and respect; human nature above all; humour,
   warmth and gentle satire; the simplest words, because most of our viewers are over 45. A wrong point in our film is
   checked against sources and owned plainly (PLAYBOOK §2.5).
 - **Answer what they actually said, at its size (owner, 2026-10-29; PLAYBOOK §2.7):** a short compliment gets one or two
@@ -81,7 +89,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
   anything destructive, and any public action beyond posting approved replies.
 
 ## Layout
-- `config/channels.yaml`: the two channels, their film repos, voice and language rules.
+- `config/channels.yaml`: the channels, their film repos, voice and language rules (The Mechanical Paradox's entry
+  waits, commented out, until its first film is public).
 - `config/videos.yaml`: YouTube video id → film folder in the film repo (filled from each channel's uploads).
 - `state/handled.csv`: every comment we decided on (one row per comment id). `state/errata.csv`: viewer corrections.
 - `scripts/yt.py`: fetch, post, edit, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
