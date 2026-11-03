@@ -315,9 +315,11 @@ fresh for that comment. The `[…]` parts are filled from the comment and the fi
    `state/handled.csv`. Also fetch replies under our own replies: a viewer answering us gets a turn too.
 2. Match each video id to its film folder (`config/videos.yaml`) and read that film's `claims.csv`, script and
    `youtube/description.md` (chapters, for timestamps).
-3. Sort every comment (§3), draft replies (§2, §3.1), check every fact against the film's sources, and run the
-   checks in §5.3.
-4. Send the batch in the chat (§5.2). Wait for the owner.
+3. Work **video by video, comment by comment** (§5.9): for each comment, read it, its thread and its viewer, sort it
+   (§3), decide, draft (§2, §3.1), check every fact against the film's sources and run the checks in §5.3, then move
+   on to the next. Never draft the whole batch together.
+4. Send the batch in the chat (§5.2) and wait for the owner, unless the owner has said in this session to post one by
+   one (§5.9): then post each reply as soon as it is written and checked.
 5. Post exactly what was approved; log every comment (posted, skipped, heart-only, hidden) in `state/handled.csv`.
 6. Commit the state files, PR to `main`, merge.
 
@@ -438,6 +440,52 @@ Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md
   comments; the batch showed 15. @abvar27's "India will eventually make it" was never drafted or logged. So, before
   sending a batch: **count it**. Drafts + no-reply/heart lines must equal the `fetch` count, and the batch says so
   ("16 fetched: 11 drafts, 5 no reply"). After posting, every fetched id must have a row in `state/handled.csv`.
+
+### 5.9 One comment at a time (owner, 2026-11-03)
+"Don't read all together. Read one by one and reply one by one. Think for each comment … video by video, comment by
+comment, understand thread, understand user intention." And afterwards: "This is how we treat each is different."
+*Why:* when a whole batch is read and drafted together, the replies come out as one recipe for many people (§2.7).
+Taking each comment alone, with its own thread, viewer and film open, makes each reply fit that one person.
+
+**The order.** One video at a time, newest first. Inside the video, one comment at a time. Finish a comment (decided,
+written, checked, and posted or set aside) before you read the next one.
+
+**For each comment, in this order:**
+1. **The comment itself.** What did they actually say, and with what feeling (§2.6, §2.7)?
+2. **The thread.** If it is a reply, read the whole thread: the first comment, our earlier reply word for word, and
+   what they are answering. "Yeah hope they can do it" only makes sense after our "engine first" reply. A comeback
+   under a roast we already posted gets no reply (one roast per thread, §2.6).
+3. **The viewer.** Their profile and every other comment they have in this fetch (§2.4). A kind regular, a first-timer,
+   a good-faith sceptic, a pile-on account. If one account posts many comments in a few minutes, read them all first
+   and answer one at most: the most factual jab, never the slur.
+4. **Their intention.** Praise, a point, a question, feedback, hope, mockery, politics, abuse. The intention decides
+   the shape: an honest complaint about length gets thanks and a question back; a comment that mixes a fair point with
+   a party attack gets an answer to the fair point only, and the politics is left alone.
+5. **The film's rows.** Open that film's `claims.csv` for the one or two facts this reply needs, and only then write.
+6. **Decide and act.** Reply, or no reply with a reason (held, politics, slur, comeback, viewer-to-viewer). With the
+   owner's go-ahead to post one by one, post it now (`yt.py post` with a one-item file) and log the claims rows in
+   the note.
+
+**After the last comment:** read all the replies together once, only to check that no two share a fact, shape or
+joke (rewrite the later one if they do); count them (§5.8); log every no-reply; then send the owner the report and the
+Studio list (heart, hide, held).
+
+**Approval in this mode.** The hard line stands: nothing is posted without the owner's approval. "Post replies one by
+one" in a session is that approval for that session's comments only. Without it, the batch goes to the owner as in
+§5.2. The hide list is still the owner's call: hide only after he says so ("hide that you recommended" on
+2026-11-03 → `yt.py hide` on the two listed, no ban).
+
+**The first run this way (2026-11-03, 23 comments, 15 replies, 8 no reply), what each comment taught:**
+- "Nobody wants to fly a widow maker" → no safety figure in claims.csv, so no safety claim. The orders answered it:
+  "Nobody orders 180 of a jet they're scared to fly."
+- "Why? Because they are made in India" (mockery) → the roast came from the film's own fact: the jets are Indian
+  and ready, the engine is the late import. "Wrong passport on that complaint."
+- "China had a head start… crooked Congress looted…" → answered the head start and "right direction", and left the
+  party out entirely.
+- "Kishore talk less, 4 min is fluff" → no defence. "Point taken, and you brought Gandhiji along to make it, so we
+  can't even argue," then asked which part dragged.
+- @channel-xo, 6 comments in 6 minutes → one reply (to "only penicillin": India makes paracetamol powder), and the
+  "Indian character" line was hidden on the owner's word.
 
 ## 6. Corrections (errata)
 1. Check the viewer's claim against the film's sources and a fresh source if needed. Never agree or disagree from
