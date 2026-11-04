@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""One-time YouTube sign-in for both channels, run on the owner's phone in Termux (docs/SETUP.md).
+"""One-time YouTube sign-in, run on the owner's phone in Termux (docs/SETUP.md).
 
 Asks for the OAuth client id and secret (a "Desktop app" client), opens Google's sign-in in the phone's browser once per
-channel, catches the answer on 127.0.0.1, checks which channel signed in, and prints the four environment secrets
-to paste into the Claude cloud environment. Nothing is saved to disk or sent anywhere but Google.
-Stdlib only.
+channel, catches the answer on 127.0.0.1, checks which channel signed in, and prints the environment secrets to paste
+into the Claude cloud environment. Nothing is saved to disk or sent anywhere but Google. Stdlib only.
+
+    python yt_auth.py                 # every channel below, plus YT_CLIENT_ID / YT_CLIENT_SECRET
+    python yt_auth.py KEY [KEY ...]   # only these channels; prints YT_REFRESH_TOKEN_<KEY> for each
+
+A KEY not listed below signs in whichever channel the owner picks (any channel not already signed in this run) and
+prints its channel id and handle, so a new channel can be added to config/channels.yaml.
 """
 import base64
 import getpass
@@ -18,11 +23,11 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-CHANNELS = {  # channel id -> secret name (config/channels.yaml)
-    "UCgmnU_XgFuGD2MejCDmAnbA": ("Built on Bharat", "YT_REFRESH_TOKEN_BUILTONBHARAT"),
+CHANNELS = {  # key (config/channels.yaml) -> (channel id, label); secret = YT_REFRESH_TOKEN_<KEY IN CAPS>
     # Google's account chooser may still show this channel's old name, Giggle Patch (owner, 2026-10-29).
-    "UCPn8z0XQ2ykv3Rt_Oexn9wQ": ("Be Practical with Kishore (old name: Giggle Patch)",
-                                 "YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE"),
+    "bepracticalwithkishore": ("UCPn8z0XQ2ykv3Rt_Oexn9wQ", "Be Practical with Kishore (old name: Giggle Patch)"),
+    # This channel id was Built on Bharat's; renamed The Mechanical Paradox by 2026-11-04 (PLAYBOOK §7.1).
+    "themechanicalparadox": ("UCgmnU_XgFuGD2MejCDmAnbA", "The Mechanical Paradox (old name: Built on Bharat)"),
 }
 SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
 AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
@@ -96,39 +101,67 @@ def sign_in(client_id, client_secret, label):
                  "Third-party connections, then run this again.")
     items = get_json("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
                      tok["access_token"]).get("items", [])
-    return (items[0]["id"], items[0]["snippet"]["title"]) if items else (None, None), tok["refresh_token"]
+    if not items:
+        return (None, None, None), tok["refresh_token"]
+    sn = items[0]["snippet"]
+    return (items[0]["id"], sn["title"].replace("\n", " "), sn.get("customUrl")), tok["refresh_token"]
 
 
-def main():
-    print("YouTube access for the Comments repo (docs/SETUP.md, step 4).")
+def secret_name(key):
+    return "YT_REFRESH_TOKEN_" + "".join(ch for ch in key.upper() if ch.isalnum() or ch == "_")
+
+
+def wanted_channels(argv):
+    """[(key, channel id or None, label)] in the order asked; None means 'any channel not yet signed in'."""
+    keys = [a.strip().lower() for a in argv if a.strip()] or list(CHANNELS)
+    if len(set(keys)) != len(keys):
+        sys.exit("Each channel key once, please.")
+    return [(k, *CHANNELS[k]) if k in CHANNELS else (k, None, f"the channel for '{k}'") for k in keys]
+
+
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    want = wanted_channels(argv)
+    print("YouTube access sign-in (docs/SETUP.md, step 4).")
+    print("Channels this run: " + ", ".join(label for _, _, label in want))
     print("Paste from your Google Cloud 'Desktop app' client. The secret is hidden while you type.\n")
     client_id = input("Client ID: ").strip()
     client_secret = getpass.getpass("Client secret: ").strip()
     if not client_id.endswith(".apps.googleusercontent.com") or not client_secret:
         sys.exit("That doesn't look like a Client ID and secret. Check step 3 and run again.")
-    got = {}
-    for wanted, (label, _) in CHANNELS.items():
-        while wanted not in got:
-            (cid, title), refresh = sign_in(client_id, client_secret, label)
-            if cid == wanted:
-                got[wanted] = refresh
+    known = {cid: key for key, cid, _ in want if cid}
+    got, info = {}, {}  # key -> refresh token; key -> (channel id, title, handle)
+    for key, wanted, label in want:
+        while key not in got:
+            (cid, title, handle), refresh = sign_in(client_id, client_secret, label)
+            taken = {i[0] for i in info.values()}
+            if cid and cid in taken:
+                print(f"That was {title}, already signed in this run. Pick {label}.")
+            elif cid and (cid == wanted or (wanted is None and cid not in {c for c, _ in CHANNELS.values()})):
+                got[key], info[key] = refresh, (cid, title, handle)
                 print(f"OK: signed in as {title}")
-            elif cid in CHANNELS and cid not in got:
-                got[cid] = refresh
-                print(f"OK: signed in as {title} (the other channel; saved it, now the one still missing)")
+                continue
+            elif cid in known and known[cid] not in got:
+                other = known[cid]
+                got[other], info[other] = refresh, (cid, title, handle)
+                print(f"OK: signed in as {title} (a channel later in the list; saved it, now {label})")
             else:
                 print(f"That was {title or 'no channel'}, not {label}. Let's try again; pick {label}.")
-                input("Press Enter to reopen the browser...")
+            input("Press Enter to reopen the browser...")
     print("\n" + "=" * 60)
     print("Copy everything between the lines into the Claude environment")
     print("(session title bar -> environment -> Edit -> secrets / environment variables).")
     print("Then clear this screen with:  clear")
     print("=" * 60)
-    print(f"YT_CLIENT_ID={client_id}")
-    print(f"YT_CLIENT_SECRET={client_secret}")
-    for cid, (_, name) in CHANNELS.items():
-        print(f"{name}={got[cid]}")
+    if not argv:
+        print(f"YT_CLIENT_ID={client_id}")
+        print(f"YT_CLIENT_SECRET={client_secret}")
+    for key, _, _ in want:
+        print(f"{secret_name(key)}={got[key]}")
     print("=" * 60)
+    for key, (cid, title, handle) in info.items():
+        if key not in CHANNELS:
+            print(f"Also tell Claude (not a secret): {key} = {title}, {handle or 'no handle'}, channel id {cid}")
 
 
 if __name__ == "__main__":

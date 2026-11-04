@@ -1,10 +1,11 @@
 # One-time setup: YouTube access (phone only, about 20 minutes)
 
-This lets Claude read comments and post **only the replies you approve** on both channels. You do it once. Everything
+This lets Claude read comments and post **only the replies you approve** on the channels. You do it once. Everything
 is done in **Chrome on the phone**; tap **⋮ → Desktop site** whenever a Google page looks cramped.
 
-You will end with four values, which go into the cloud environment's secrets (step 5), **never into the chat**:
-`YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BUILTONBHARAT`, `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`.
+You will end with these values, which go into the cloud environment's secrets (step 5), **never into the chat**:
+`YT_CLIENT_ID`, `YT_CLIENT_SECRET`, and one `YT_REFRESH_TOKEN_<KEY>` per channel (key = the channel's name in
+`config/channels.yaml`): `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`, `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`.
 
 ## 1. Create the Google Cloud project
 1. Open **console.cloud.google.com** and sign in with the Google account that owns the channels.
@@ -33,16 +34,22 @@ Paste this in Termux:
 pkg install -y python && curl -fsSL -o ~/yt_auth.py https://raw.githubusercontent.com/mkmk749278/Comments/main/scripts/termux_auth.py && python ~/yt_auth.py; rm -f ~/yt_auth.py
 ```
 
-It asks for the Client ID and secret (the secret stays hidden while you type), then opens Chrome twice, once per
-channel. Each time: pick your Google account, then **the channel it names** (Built on Bharat first; Be Practical with Kishore may appear under its old name, **Giggle Patch**). Press Enter in Termux before each sign-in to open Chrome; if it doesn't open, long-press in Termux → More… → Select URL → the last link. On the "hasn't
+It asks for the Client ID and secret (the secret stays hidden while you type), then opens Chrome once per
+channel. Each time: pick your Google account, then **the channel it names** (Be Practical with Kishore may appear under
+its old name, **Giggle Patch**). Press Enter in Termux before each sign-in to open Chrome; if it doesn't open, long-press in Termux → More… → Select URL → the last link. On the "hasn't
 verified" page: **Advanced → Go to Comments (unsafe) → Continue**. Chrome shows *Done. Go back to Termux.* Termux
-checks which channel signed in (picking the wrong one just asks again) and at the end prints four lines,
-`NAME=value`, ready for step 5. Nothing is saved on the phone.
+checks which channel signed in (picking the wrong one just asks again) and at the end prints the `NAME=value` lines,
+ready for step 5. Nothing is saved on the phone.
+
+**Adding one channel later** (the client already exists, so only its token is new): put the channel keys after the
+command, e.g. `python ~/yt_auth.py themechanicalparadox`. It then signs in only those channels and prints only their
+`YT_REFRESH_TOKEN_<KEY>` lines. A key the script doesn't know yet signs in whichever new channel you pick and also
+prints that channel's id and handle to tell Claude.
 
 ### 4b. Fallback without Termux (OAuth Playground)
 Only if Termux can't be used: create a second client of type **Web application** with the redirect URI
 `https://developers.google.com/oauthplayground`, and use that client's id and secret here.
-Do this twice: first for **Built on Bharat**, then for **Be Practical with Kishore**.
+Do this once per channel.
 
 1. Open **developers.google.com/oauthplayground**.
 2. Tap the **⚙ gear** (top right) → tick **Use your own OAuth credentials** → paste the Client ID and Client secret →
@@ -52,15 +59,14 @@ Do this twice: first for **Built on Bharat**, then for **Be Practical with Kisho
 4. Pick your Google account. **When Google asks which channel (account or brand account), pick the channel for this
    round.** On the "hasn't verified" page: **Advanced → Go to Comments (unsafe)** → **Continue / Allow**.
 5. Back in the Playground, **Step 2 → Exchange authorization code for tokens**. Copy the **Refresh token**.
-   - Round 1 (Built on Bharat) → this is `YT_REFRESH_TOKEN_BUILTONBHARAT`
-   - Round 2 (Be Practical with Kishore) → this is `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`
-6. For round 2, go back to Step 1 and repeat 3–5, choosing the other channel.
+   It is `YT_REFRESH_TOKEN_<KEY>` for the channel you picked (e.g. `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`).
+6. For the next channel, go back to Step 1 and repeat 3–5, choosing that channel.
 
 ## 5. Save the four values as secrets
 1. In the **Claude app**, open a Claude Code session in the `Comments` environment → tap the **environment menu in the
    session's title bar → Edit**.
-2. Under **Network secrets** (or **API credentials**; in older apps, **Environment variables**) add the four names
-   with their values (the four `NAME=value` lines Termux printed). Save, then type `clear` in Termux.
+2. Under **Network secrets** (or **API credentials**; in older apps, **Environment variables**) add each name
+   with its value (the `NAME=value` lines Termux printed). Save, then type `clear` in Termux.
 3. Start a **new session** (secrets load when a session starts) and say *"check YouTube access"*. Claude runs
    `scripts/yt.py whoami`, which prints `OK` for each channel when the right channel signed in, without ever showing
    the secrets.

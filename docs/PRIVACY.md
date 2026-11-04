@@ -1,14 +1,15 @@
 # Privacy policy: Comments
 
-*Last updated: 29 October 2026*
+*Last updated: 4 November 2026*
 
-**Comments** is a private tool used only by the owner of two YouTube channels, **Built on Bharat** (@builtonbharat)
-and **Be Practical with Kishore** (@bepracticalwithkishore), to read the comments on those channels' own videos and
-reply to them. It has no other users.
+**Comments** is a private tool used only by the owner of a few YouTube channels, among them **Be Practical with
+Kishore** (@bepracticalwithkishore) and **The Mechanical Paradox** (@themechanicalparadox), to read the comments on
+the owner's own channels' videos and reply to them. It works only on channels the owner has signed in. It has no other
+users.
 
 ## What it accesses
 Through the YouTube Data API, with the channel owner's sign-in, it:
-- reads public comments and replies on the two channels' videos, and comments held for review;
+- reads public comments and replies on the signed-in channels' videos, and comments held for review;
 - posts replies that the channel owner has approved, as the channel;
 - hides comments or blocks commenters on those channels when the owner decides to (spam, scams, abuse).
 
