@@ -92,14 +92,14 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
   anything destructive, and any public action beyond posting approved replies.
 
 ## Layout
-- `config/channels.yaml`: the channels, their film repos, voice and language rules (The Mechanical Paradox's entry
-  waits, commented out, until its first film is public).
+- `config/channels.yaml`: the channels, their film repos, voice and language rules.
 - `config/videos.yaml`: YouTube video id → film folder in the film repo (filled from each channel's uploads).
 - `state/handled.csv`: every comment we decided on (one row per comment id). `state/errata.csv`: viewer corrections.
 - `scripts/yt.py`: fetch, post, edit, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
 - `docs/SETUP.md`: the owner's one-time phone setup for YouTube access (`scripts/termux_auth.py` does the sign-in in Termux). `docs/PLAYBOOK.md`: everything else.
-- Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BUILTONBHARAT`,
-  `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`.
+- Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`,
+  `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. (2026-11-04: Built on Bharat's channel id now carries The Mechanical
+  Paradox, so its entry is on and Built on Bharat's is off until it has a channel again; PLAYBOOK §7.1.)
 
 ## Ground rules
 1. Ask before adding paid services, and report the expected cost.

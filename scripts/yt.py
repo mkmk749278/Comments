@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YouTube comment tooling for Built on Bharat and Be Practical with Kishore (PLAYBOOK §5, §9).
+"""YouTube comment tooling for the channels in config/channels.yaml (PLAYBOOK §5, §9).
 
 Subcommands:
   whoami                 check each channel's OAuth token signs in as the right channel
@@ -13,7 +13,7 @@ Subcommands:
   record ...             log a decision that posts nothing (skipped, heart, pin, held)
 
 Secrets come from the environment only: YT_CLIENT_ID, YT_CLIENT_SECRET and one refresh token per channel,
-YT_REFRESH_TOKEN_<CHANNEL KEY IN CAPS> (e.g. YT_REFRESH_TOKEN_BUILTONBHARAT). They are never printed.
+YT_REFRESH_TOKEN_<CHANNEL KEY IN CAPS> (e.g. YT_REFRESH_TOKEN_THEMECHANICALPARADOX). They are never printed.
 Stdlib + PyYAML only (requirements.txt).
 """
 from __future__ import annotations

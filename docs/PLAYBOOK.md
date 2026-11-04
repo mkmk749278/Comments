@@ -520,6 +520,14 @@ secret `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`); (3) add its videos to `config/v
 it, plus the launch-window runs (§5.4) at 1, 3 and 8 hours after each film goes public. Its blueprint's "10–15 peer
 responses in hours 0–2" means genuine replies to real comments only, never seeded engagement.
 
+**2026-11-04, what the check found:** `yt.py` showed that Built on Bharat's channel id (`UCgmnU_XgFuGD2MejCDmAnbA`)
+had been renamed **The Mechanical Paradox** (`@themechanicalparadox`, 0 videos; `@builtonbharat` resolves to the same
+id). The old `YT_REFRESH_TOKEN_BUILTONBHARAT` therefore signed in The Mechanical Paradox. Its entry in
+`config/channels.yaml` is now on under its own key and Built on Bharat's is off; the owner re-signs it once with
+`termux_auth.py themechanicalparadox` to get `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`, then deletes the old secret.
+*Why it matters:* a renamed channel keeps its id and token, so a session would have answered The Mechanical Paradox's
+viewers in Built on Bharat's voice. `whoami` prints the live channel title; read it, not only OK/BAD.
+
 ## 8. What we changed from the owner's document, and why (2026-10-29)
 - **Template numbers removed.** The document's examples carried figures with no sources (workforce counts, plant
   capacities, scheme sizes). A reply is public like the film, so the same fact rule applies.

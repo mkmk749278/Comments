@@ -74,9 +74,9 @@ class YtTest(unittest.TestCase):
         yt.RUNS = self.tmp / "runs"
         self.api = FakeApi()
         yt.http_json = self.api
-        os.environ.update({"YT_CLIENT_ID": "x", "YT_CLIENT_SECRET": "y", "YT_REFRESH_TOKEN_BUILTONBHARAT": "z"})
+        os.environ.update({"YT_CLIENT_ID": "x", "YT_CLIENT_SECRET": "y", "YT_REFRESH_TOKEN_THEMECHANICALPARADOX": "z"})
         os.environ.pop("YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE", None)
-        yt.append_handled({"comment_id": "t2", "channel": "builtonbharat", "action": "skipped"})
+        yt.append_handled({"comment_id": "t2", "channel": "themechanicalparadox", "action": "skipped"})
 
     def tearDown(self):
         for k, v in self.orig.items():
@@ -84,7 +84,7 @@ class YtTest(unittest.TestCase):
         shutil.rmtree(self.tmp)
 
     def fetched(self):
-        self.assertEqual(yt.main(["fetch", "--channel", "builtonbharat"]), 0)
+        self.assertEqual(yt.main(["fetch", "--channel", "themechanicalparadox"]), 0)
         return json.loads(next(yt.RUNS.glob("*/new.json")).read_text())
 
     def test_fetch_skips_handled_and_own_and_reads_full_threads(self):
@@ -107,7 +107,7 @@ class YtTest(unittest.TestCase):
 
     def test_post_needs_confirm_then_posts_once_and_logs(self):
         f = self.tmp / "approved.json"
-        f.write_text(json.dumps([{"comment_id": "r1", "thread_id": "t1", "channel": "builtonbharat", "author": "@viewer",
+        f.write_text(json.dumps([{"comment_id": "r1", "thread_id": "t1", "channel": "themechanicalparadox", "author": "@viewer",
                                   "type": "A", "language": "en", "text": "The blade point is the heart of it."}]))
         self.assertEqual(yt.main(["post", str(f)]), 2)
         self.assertFalse([c for c in self.api.calls if c[2] == "POST"])
@@ -123,11 +123,11 @@ class YtTest(unittest.TestCase):
         self.assertNotIn("r1", {i["id"] for i in self.fetched()})
 
     def test_edit_needs_confirm_and_only_our_logged_replies(self):
-        yt.append_handled({"comment_id": "r1", "channel": "builtonbharat", "action": "replied", "reply_id": "rep1",
+        yt.append_handled({"comment_id": "r1", "channel": "themechanicalparadox", "action": "replied", "reply_id": "rep1",
                            "note": "thread=t1"})
-        args = ["edit", "--channel", "builtonbharat", "--reply", "rep1", "--text", "Shorter, warmer."]
+        args = ["edit", "--channel", "themechanicalparadox", "--reply", "rep1", "--text", "Shorter, warmer."]
         self.assertEqual(yt.main(args), 2)
-        self.assertEqual(yt.main(["edit", "--channel", "builtonbharat", "--reply", "nope", "--text", "x",
+        self.assertEqual(yt.main(["edit", "--channel", "themechanicalparadox", "--reply", "nope", "--text", "x",
                                   "--confirm"]), 1)
         self.assertEqual(yt.main(args + ["--confirm"]), 0)
         puts = [c for c in self.api.calls if c[2] == "PUT"]
@@ -138,11 +138,11 @@ class YtTest(unittest.TestCase):
         self.assertIn("t2", {r["comment_id"] for r in yt.handled_rows()})  # rewrite keeps every other row
 
     def test_hide_and_record(self):
-        self.assertEqual(yt.main(["hide", "--channel", "builtonbharat", "--comment", "held1"]), 2)
-        self.assertEqual(yt.main(["hide", "--channel", "builtonbharat", "--comment", "held1", "--ban",
+        self.assertEqual(yt.main(["hide", "--channel", "themechanicalparadox", "--comment", "held1"]), 2)
+        self.assertEqual(yt.main(["hide", "--channel", "themechanicalparadox", "--comment", "held1", "--ban",
                                   "--confirm"]), 0)
         self.assertIn("banAuthor=true", self.api.calls[-1][0])
-        self.assertEqual(yt.main(["record", "--channel", "builtonbharat", "--comment", "t3",
+        self.assertEqual(yt.main(["record", "--channel", "themechanicalparadox", "--comment", "t3",
                                   "--action", "heart"]), 0)
         actions = {r["comment_id"]: r["action"] for r in yt.handled_rows()}
         self.assertEqual((actions["held1"], actions["t3"]), ("banned", "heart"))
