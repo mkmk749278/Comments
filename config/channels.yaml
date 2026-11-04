@@ -8,9 +8,8 @@ channels:
     film_dirs: [projects, episodes]
     reply_language: match         # match the commenter: te / Tenglish / en (owner, 2026-10-29; PLAYBOOK §2.2)
     voice: docs/PLAYBOOK.md#22-be-practical-with-kishore
-  # The Mechanical Paradox (owner, 2026-11-03). Checked 2026-11-04 with yt.py: Built on Bharat's channel id
-  # UCgmnU_XgFuGD2MejCDmAnbA is now titled The Mechanical Paradox, handle @themechanicalparadox (0 videos; @builtonbharat
-  # resolves to the same id). So Built on Bharat's entry is off and this one is on (PLAYBOOK §7.1).
+  # The Mechanical Paradox (owner, 2026-11-03). This is the channel once called Built on Bharat, renamed by the owner
+  # (2026-11-04): same id, new name and voice. There is no Built on Bharat channel any more (PLAYBOOK §7.1).
   # Secret YT_REFRESH_TOKEN_THEMECHANICALPARADOX (docs/SETUP.md step 4).
   themechanicalparadox:
     name: The Mechanical Paradox
@@ -20,13 +19,3 @@ channels:
     film_dirs: [films]
     reply_language: en            # English always, simple international English (PLAYBOOK §2.2a)
     voice: docs/PLAYBOOK.md#22a-the-mechanical-paradox
-  # Built on Bharat: off since 2026-11-04 (its channel id is now The Mechanical Paradox's, above). If Built on Bharat
-  # gets a new channel, put its id here, uncomment, and sign it in (docs/SETUP.md step 4, key builtonbharat).
-  # builtonbharat:
-  #   name: Built on Bharat
-  #   handle: "@builtonbharat"
-  #   channel_id: <new channel id>
-  #   film_repo: mkmk749278/Built-on-Bharat
-  #   film_dirs: [films]
-  #   reply_language: en            # English always (PLAYBOOK §2.1)
-  #   voice: docs/PLAYBOOK.md#21-built-on-bharat

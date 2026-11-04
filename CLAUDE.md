@@ -1,13 +1,14 @@
 # Comments: Claude Code guide
 
 This repo answers YouTube comments for the owner's channels:
-- **Built on Bharat** (`@builtonbharat`): cinematic documentaries on the companies, machines, people and habits that
-  built India. Films live in the repo `mkmk749278/Built-on-Bharat` (`films/<slug>/`).
 - **Be Practical with Kishore** (`@bepracticalwithkishore`): narrated documentaries and explainers in English and
   Telugu. Films live in the repo `mkmk749278/Creator` (`projects/<slug>/`, `episodes/<slug>/`).
-- **The Mechanical Paradox** (`@themechanicalparadox`; owner, 2026-11-03; switched on when its first film is public,
-  PLAYBOOK §7.1): code-rendered physics explainers of everyday machines for a global English audience. Films live in
+- **The Mechanical Paradox** (`@themechanicalparadox`; owner, 2026-11-03; switched on 2026-11-04, PLAYBOOK §7.1):
+  code-rendered physics explainers of everyday machines for a global English audience. Films live in
   the repo `mkmk749278/The-Mechanical-Paradox` (`films/<slug>/`).
+
+**There is no Built on Bharat channel (owner, 2026-11-04).** It was renamed The Mechanical Paradox: same channel id,
+new name, new voice. Never answer anyone in Built on Bharat's voice (PLAYBOOK §7.1).
 
 This file holds the rules every session must follow. **`docs/PLAYBOOK.md` is the only other instruction file**: the
 full reply strategy, the comment types, the voice of each channel, the workflow and the reason behind each rule. Read it
@@ -56,16 +57,14 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - **Secrets stay secret.** OAuth tokens and keys live in environment secrets only, never in git, chat or a reply.
 
 ## Voice (PLAYBOOK §2)
-- **Built on Bharat:** warm, simple Indian English, cinematic and respectful; proud of India, never jingoistic, honest
-  about failures, never cynical. English replies; if a viewer writes in another language, a short warm English reply.
 - **Be Practical with Kishore:** the elder brother across the table. **Reply in the commenter's language**: Telugu
   script for Telugu, Tenglish for Tenglish, simple English for English (owner, 2026-10-29).
 - **The Mechanical Paradox (owner, 2026-11-03; PLAYBOOK §2.2a):** the curious engineer at the next desk: plain
   international English that a non-native speaker reads easily, American spelling, peer level with experts, patient
   with students; the physics in one plain sentence, never a lecture. English replies; a short simple English reply to
   other languages. No India-pride framing and no regional slang on this channel ("yaar", "mate", "y'all"): its viewers
-  are global, and the two directives below that put India first are for the two Indian channels.
-- **Owner's voice directive (2026-10-29, Built on Bharat and Be Practical with Kishore):** India first, with pride and respect; human nature above all; humour,
+  are global, and the directive below that puts India first is for Be Practical with Kishore only.
+- **Owner's voice directive (2026-10-29, Be Practical with Kishore):** India first, with pride and respect; human nature above all; humour,
   warmth and gentle satire; the simplest words, because most of our viewers are over 45. A wrong point in our film is
   checked against sources and owned plainly (PLAYBOOK §2.5).
 - **Answer what they actually said, at its size (owner, 2026-10-29; PLAYBOOK §2.7):** a short compliment gets one or two
@@ -98,8 +97,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - `scripts/yt.py`: fetch, post, edit, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
 - `docs/SETUP.md`: the owner's one-time phone setup for YouTube access (`scripts/termux_auth.py` does the sign-in in Termux). `docs/PLAYBOOK.md`: everything else.
 - Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`,
-  `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. (2026-11-04: Built on Bharat's channel id now carries The Mechanical
-  Paradox, so its entry is on and Built on Bharat's is off until it has a channel again; PLAYBOOK §7.1.)
+  `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. `YT_REFRESH_TOKEN_BUILTONBHARAT` is the old name's token: not used, the
+  owner deletes it (PLAYBOOK §7.1).
 
 ## Ground rules
 1. Ask before adding paid services, and report the expected cost.
