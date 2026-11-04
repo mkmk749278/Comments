@@ -1,7 +1,7 @@
 # Comments playbook
 
-The full reply strategy for **Built on Bharat** and **Be Practical with Kishore**, and for **The Mechanical Paradox**
-from its first film (owner, 2026-11-03; §2.2a, §7.1). Each channel keeps its own voice: never carry one channel's tone,
+The full reply strategy for **Be Practical with Kishore** and **The Mechanical Paradox** (owner, 2026-11-03; §2.2a,
+§7.1). Built on Bharat no longer exists: the owner renamed it The Mechanical Paradox (2026-11-04). Each channel keeps its own voice: never carry one channel's tone,
 jokes or framing into another's replies. `CLAUDE.md` holds the hard rules;
 this file holds the how and the why. Owner directives are dated. Add lessons here, with the reason, never in new files.
 
@@ -32,12 +32,9 @@ Four traits for every reply, from the owner's document:
 | **Humble** | Thanks people for corrections and real debate. | Never argues to win; never hides a polite correction. |
 | **Adds something** | A detail from our research that didn't fit the cut, the source of a number, or a sharp question. | No "Thanks!", "Agree!", "👍" on their own. |
 
-### 2.1 Built on Bharat
-- Warm, simple Indian English: the words any Indian from any state understands. The same voice as the narration
-  (Built-on-Bharat PLAYBOOK §7), shorter.
-- Proud of India, never jingoistic; honest about failures, never cynical; people first (the worker, the founder, the
-  family).
-- No Hindi tags ("na", "yaar"), no "Jai Hind" sign-offs, no hype words.
+### 2.1 Built on Bharat (retired, owner 2026-11-04)
+- The channel was renamed The Mechanical Paradox (§2.2a, §7.1). Its old voice (warm Indian English, India pride) is
+  not used anywhere now. Older lessons below that name Built on Bharat are kept as history.
 
 ### 2.2 Be Practical with Kishore
 - The elder brother across the table: practical, warm, a little humour where it fits, never preachy, never
@@ -327,7 +324,7 @@ fresh for that comment. The `[…]` parts are filled from the comment and the fi
 One message per run. Newest videos first; inside a video, the most valuable comments first.
 
 ```
-Built on Bharat · <video title> (3 new)
+The Mechanical Paradox · <video title> (3 new)
 
 #1 · Expert · @name · 2 h · <profile: regular / new, subscribed yes / unknown>
 "<their comment, trimmed to ~300 characters>"
@@ -355,9 +352,9 @@ left unposted and stays in the next batch once, then is logged as skipped.
 ### 5.3 Checks before a draft reaches the owner
 - Every fact traces to a source the session checked. No fact without a source. The batch shows no source lines
   (owner, 2026-10-30); the claims row ids go in the `state/handled.csv` note when the reply is posted.
-- No banned phrase (§4), no link, no Hindi tag on Built on Bharat. A subscribe invitation only as §2.5 allows.
+- No banned phrase (§4), no link, no Hindi tag or India-pride framing on The Mechanical Paradox. A subscribe invitation only as §2.5 allows.
 - The viewer's profile (§2.4) was read, and the reply fits who they are.
-- Language matches the commenter (Be Practical with Kishore) or is English (Built on Bharat).
+- Language matches the commenter (Be Practical with Kishore) or is English (The Mechanical Paradox).
 - Timestamps are right for the published cut.
 - Read it aloud in your head as the narrator: warm, short, human. Not a teacher, not a press release.
 
@@ -380,7 +377,7 @@ left unposted and stays in the next batch once, then is logged as skipped.
 | Hide | `python3 scripts/yt.py hide --channel C --comment ID [--ban] --confirm` | Rejects the comment (gone from public view). `--ban` also hides the author from the channel. Owner's call only. |
 | Log | `python3 scripts/yt.py record --channel C --comment ID --action skipped\|heart\|pin\|heart+pin\|held\|no-reply` | Every comment in a batch gets a row, posted or not. |
 
-Channel keys: `builtonbharat`, `bepracticalwithkishore`. Secrets: `docs/SETUP.md`. Offline tests:
+Channel keys: `bepracticalwithkishore`, `themechanicalparadox`. Secrets: `docs/SETUP.md`. Offline tests:
 `python3 -m unittest tests/test_yt.py`.
 
 `config/videos.yaml` notes: the two Moon/jet-engine uploads (`_4G7-vTadZQ`, `m4h_2gXESp0`) both map to
@@ -527,6 +524,10 @@ id). The old `YT_REFRESH_TOKEN_BUILTONBHARAT` therefore signed in The Mechanical
 `termux_auth.py themechanicalparadox` to get `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`, then deletes the old secret.
 *Why it matters:* a renamed channel keeps its id and token, so a session would have answered The Mechanical Paradox's
 viewers in Built on Bharat's voice. `whoami` prints the live channel title; read it, not only OK/BAD.
+
+**Owner, 2026-11-04: there is no Built on Bharat.** It was renamed, not lost, so there is no new channel to wait for.
+Its commented-out entry is gone from `config/channels.yaml` and its voice (§2.1) is retired. The secret
+`YT_REFRESH_TOKEN_BUILTONBHARAT` still signs in The Mechanical Paradox; it is unused and the owner deletes it.
 
 ## 8. What we changed from the owner's document, and why (2026-10-29)
 - **Template numbers removed.** The document's examples carried figures with no sources (workforce counts, plant
