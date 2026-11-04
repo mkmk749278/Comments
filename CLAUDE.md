@@ -7,8 +7,10 @@ This repo answers YouTube comments for the owner's channels:
   code-rendered physics explainers of everyday machines for a global English audience. Films live in
   the repo `mkmk749278/The-Mechanical-Paradox` (`films/<slug>/`).
 
-**There is no Built on Bharat channel (owner, 2026-11-04).** It was renamed The Mechanical Paradox: same channel id,
-new name, new voice. Never answer anyone in Built on Bharat's voice (PLAYBOOK §7.1).
+**There is no Built on Bharat channel (owner, 2026-11-04).** Its channel id was renamed The Mechanical Paradox, and
+its India documentaries are now part of Be Practical with Kishore. Every video on Be Practical with Kishore,
+India documentaries included, follows Be Practical with Kishore's rules. Never answer anyone in Built on Bharat's
+voice (PLAYBOOK §2.1, §7.1).
 
 This file holds the rules every session must follow. **`docs/PLAYBOOK.md` is the only other instruction file**: the
 full reply strategy, the comment types, the voice of each channel, the workflow and the reason behind each rule. Read it

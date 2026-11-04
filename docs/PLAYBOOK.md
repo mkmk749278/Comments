@@ -33,8 +33,11 @@ Four traits for every reply, from the owner's document:
 | **Adds something** | A detail from our research that didn't fit the cut, the source of a number, or a sharp question. | No "Thanks!", "Agree!", "👍" on their own. |
 
 ### 2.1 Built on Bharat (retired, owner 2026-11-04)
-- The channel was renamed The Mechanical Paradox (§2.2a, §7.1). Its old voice (warm Indian English, India pride) is
-  not used anywhere now. Older lessons below that name Built on Bharat are kept as history.
+- The channel id was renamed The Mechanical Paradox (§2.2a, §7.1), and Built on Bharat's India documentaries are
+  now part of Be Practical with Kishore (owner, 2026-11-04). Those films (Tejas, rare earths, medicines, jet engines
+  and the rest on that channel) follow §2.2 like every other Be Practical with Kishore video: the elder brother's
+  voice, the commenter's language. *Why:* one channel, one voice; viewers shouldn't meet two personalities under the
+  same name. Built on Bharat's old voice is not used anywhere now. Older lessons below that name Built on Bharat are kept as history.
 
 ### 2.2 Be Practical with Kishore
 - The elder brother across the table: practical, warm, a little humour where it fits, never preachy, never
