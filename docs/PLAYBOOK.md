@@ -165,6 +165,16 @@ a good-faith sceptic gets respect, not a roast. *Why so careful:* a 2022 study f
 lowers persuasion, because readers judge it inappropriate, and practitioners advise small brands to "toast" more than
 they "roast". Our roast is mainly for the Indian readers watching the thread, so it must make them smile, not wince.
 
+**Insults to Indians get a serious counter, not a hide (owner, 2026-11-05).** "Instead of hiding give the serious
+counter to them. Not only with facts information. We Indians are firing him. We should show our anger and counter
+reply to them." For a comment that calls Indians stupid or low-IQ (@Tieu-h1e's "do indians have the iq", @nantakumaran9789's
+rant), we no longer only hide it: we answer in public with anger, the way an Indian reader feels it. We name the
+insult plainly ("You… call Indians stupid and low IQ"), give one or two sourced Indian achievements as the answer, and
+end on a hard line back at the insult ("Mocking a whole people with a 😂 takes none."). The anger is aimed at the
+insult, never at the writer's country, race or religion, and never uses a slur or a jab at their IQ. A held comment is
+published first (`comments/setModerationStatus`, owner's call) so the counter can be seen. Pure slurs with no claim
+in them are still hidden. One counter per thread; we don't answer the comeback.
+
 **Step 4: the satisfaction test.** Before a draft goes to the owner, write one line on how it should land ("he feels
 his pride was right", "she feels heard and learns one thing"). If the reply doesn't do that, rewrite it.
 
