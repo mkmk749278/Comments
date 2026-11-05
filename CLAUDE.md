@@ -35,11 +35,12 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 
 ## Hard lines (never bend)
 - **Owner approval before every post.** "approve 1,3" means post 1 and 3 only. Unclear instruction → ask, don't guess.
-- **Facts only from sources.** A reply is public, like the film. Every fact, number, date, name or quote in a reply
-  comes from the film's `claims.csv` (or its research files with a URL); the session checks the row, but the batch
-  doesn't show source lines (owner, 2026-10-30) and the row ids go in the handled note. A new
-  fact needs a source found and checked in the session, shown to the owner with the draft. The model's knowledge stops
-  at June 2026: never state a fact from memory.
+- **Facts only from sources; the film's files are a reference, not a limit (owner, 2026-11-05; PLAYBOOK §5.10).** A
+  reply is public, like the film. Every fact, number, date, name or quote in a reply comes from a source the session
+  checked: the film's `claims.csv` and research files, **or the web** (WebSearch/WebFetch in the session, the newest and
+  most official source found). Use the web whenever it makes the reply better: news since the film, the viewer's own
+  point, a sharper fact. The batch doesn't show source lines (owner, 2026-10-30); row ids and web URLs go in the
+  handled note. The model's knowledge stops at June 2026: never state a fact from memory.
 - **Never claim what isn't true about us.** No invented team ("our visual team"), no promised remaster or follow-up film
   that isn't planned, no "I read every comment" unless it is so. Speak as the channel.
 - **Respect, always.** Never mock a person, region, language, religion, caste or community. Political figures and
