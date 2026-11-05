@@ -173,7 +173,11 @@ insult plainly ("You… call Indians stupid and low IQ"), give one or two source
 end on a hard line back at the insult ("Mocking a whole people with a 😂 takes none."). The anger is aimed at the
 insult, never at the writer's country, race or religion, and never uses a slur or a jab at their IQ. A held comment is
 published first (`comments/setModerationStatus`, owner's call) so the counter can be seen. Pure slurs with no claim
-in them are still hidden. One counter per thread; we don't answer the comeback.
+in them are still hidden. One counter per thread; we don't answer the comeback. **Answer every point, not just the insult (owner, same day: "Counter attack on AI film needs more attention. You
+just counter everything he is saying except political").** A long rant gets a point-by-point counter: quote each
+non-political claim in a few words ("Weak brainpower?", "Not smart at stealing?") and answer it with a sourced Indian
+achievement, from any of our films' `claims.csv`. Leave out the party politics, and never repeat a rumour about a
+person (we asked that Dr Bhabha's memory be kept out of rumours, no claim of our own).
 
 **Step 4: the satisfaction test.** Before a draft goes to the owner, write one line on how it should land ("he feels
 his pride was right", "she feels heard and learns one thing"). If the reply doesn't do that, rewrite it.
