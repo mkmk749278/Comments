@@ -475,6 +475,13 @@ written, checked, and posted or set aside) before you read the next one.
    (the same text again) goes on the hide list. Never leave one hanging (owner, 2026-11-05: "Hide duplicate then or
    reply both, don't leave it like that").** A pile-on account mocking India still gets one reply at most: the most
    factual jab, never the slur; its other jabs go on the hide list for the owner.
+   **A serial debater (owner, 2026-11-07: "Reply him related facts, our video or speaks about India but don't when
+   it's political angle"):** a viewer who keeps arguing India down across many comments gets a reply to every fact
+   about our film or about India, however often, and nothing for the political part. In a comment that mixes both,
+   answer the fact and leave the politics out entirely; a purely political comment (ministers as "clowns", "Godi
+   media") gets no reply. *Why:* @lghsieh8860 (13 comments, 3 films, 5–7 Nov) brought real points (PISA, Chang'e,
+   the Tejas parts list) wrapped in party insults. Answering the facts keeps the thread honest for other readers;
+   answering the politics would put the channel on a side.
 4. **Their intention.** Praise, a point, a question, feedback, hope, mockery, politics, abuse. The intention decides
    the shape: an honest complaint about length gets thanks and a question back; a comment that mixes a fair point with
    a party attack gets an answer to the fair point only, and the politics is left alone.
