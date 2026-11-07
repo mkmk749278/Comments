@@ -300,6 +300,21 @@ line under each one. So:
 `scripts/yt.py edit` replaces the text of a reply we already posted (owner-approved only), and notes the edit in
 `state/handled.csv`.
 
+**More creativity, in simple words (owner, 2026-11-07).** On the Santa reply to @saleem956ify ("Ho ho ho, Chris.
+Then your elves missed the factory visit…"): "Use your creativity like this. Even more interactive, even more natural,
+even more creativity, but keep everything in simple words."
+- **Play inside the viewer's own picture.** He said Santa and the North Pole, so the reply stayed with Santa: his
+  elves, a factory visit, a workshop list. Take their joke, image or word and turn it, rather than starting a new one.
+- **Make it a conversation.** Talk back to the person, nudge them, leave them a line they want to answer: a light
+  challenge, a friendly question, a "your move".
+- **Natural:** it should read like a quick message from Kishore, not a written answer. Contractions, short lines,
+  everyday pictures (the chai stall, the milkman, the factory gate).
+- **Simple words always:** creativity lives in the idea and the picture, never in long or fancy words. Most of our
+  viewers are over 45 and many read English as a second language.
+- The facts stay sourced (§5.10), and the respect rules hold: read the name before the joke (§2.4).
+*Why:* the playful, on-picture reply was the one the owner liked best; a smart turn in plain words gets read, liked
+and answered, while a correct but stiff fact gets scrolled past.
+
 ## 3. The comment types
 
 Every comment gets one type. The type decides the action.

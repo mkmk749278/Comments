@@ -84,6 +84,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
   where they fit, never in every reply; never joke at India's expense; roast only someone mocking India.
 - **Conversational, not technical (owner, 2026-10-31; PLAYBOOK §5.8):** react to their words first, keep any fact
   small and plain (no test names, figures or years unless needed), end on a punchy line or a friend's question.
+- **More creativity, in simple words (owner, 2026-11-07; PLAYBOOK §2.7):** play inside the viewer's own joke or
+  picture, make it a back-and-forth, sound like a quick message from Kishore; clever ideas, never fancy words.
 - Short and human: most replies 1–3 sentences; experts and corrections get up to ~80 words. No hype words, no
   "Incredible!", no "man/bro/yaar".
 
