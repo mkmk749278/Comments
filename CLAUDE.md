@@ -57,6 +57,8 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - **Subscribe invitations (owner, 2026-10-29), written fresh each time:** only to a genuine viewer whose
   subscription we can't see, at most once per viewer, worded so it still reads well if they already subscribe in
   private; never to a troll, never to a listed subscriber (PLAYBOOK §2.5).
+- **Read the name too (owner, 2026-11-07; PLAYBOOK §2.4):** no festival or religious wish unless the viewer brings
+  their own; the name hints at who they are, and a joke or sign-off must sit right with that person.
 - **Know the viewer first (owner, 2026-10-29):** before drafting, read the commenter's profile from `fetch` (regular or
   new, how they behave, subscribed: `yes` or `unknown`). `unknown` never means "not subscribed". Profiles stay out of
   git: this repo is public (PLAYBOOK §2.4).

@@ -116,6 +116,17 @@ of behaviour, and whether the user actually subscribed to our channel."
 - Use it: an elite or regular viewer is greeted as someone we know ("you've been asking the sharpest questions here");
   a first-timer is welcomed; a troll's history tells us not to start a thread.
 
+**Read the name too (owner, 2026-11-07).** On @saleem956ify's "I am Chris Kringle and I live in the North Pole",
+our reply played along with his Santa joke and ended "Merry Christmas a little early." The owner: "Look at his name.
+Saleem, a Muslim, but you wished Merry Christmas. I liked your approach and creativity, keep it up, but also look at
+names, understand who he is." So:
+- Before a joke, a greeting or a sign-off, read the name and profile as well as the words: they hint at the viewer's
+  language, region and faith, and the reply has to sit right with that person.
+- **No festival or religious wishes unless the viewer brings their own** (they wish us Eid Mubarak → we wish them
+  back). Play along with a joke's picture (Santa's elves) without turning it into a festival greeting.
+- Never mention or guess anyone's religion or caste in a reply; the name only guides what not to say.
+*Why:* a wish from the wrong faith reads as careless at best and as a taunt at worst, and the whole thread sees it.
+
 ### 2.5 The owner's voice directive (2026-10-29)
 "If not subscribed, we ask him to subscribe. Human-like nature is most important; use your creativity here. Remember I'm
 Indian and proud to say it. We should respect our nation first in comments. If anything is really wrong in our video,
