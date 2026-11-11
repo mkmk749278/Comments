@@ -532,6 +532,11 @@ written, checked, and posted or set aside) before you read the next one.
    media") gets no reply. *Why:* @lghsieh8860 (13 comments, 3 films, 5–7 Nov) brought real points (PISA, Chang'e,
    the Tejas parts list) wrapped in party insults. Answering the facts keeps the thread honest for other readers;
    answering the politics would put the channel on a side.
+   **The owner can lift the one-reply limit (2026-11-11: "Counter attack them").** @Clambakes posted three 😂 jabs
+   in six minutes; we answered one and left two. The owner asked for all three to be countered. So when a pile-on
+   account's jabs each carry a claim (a ranking, our own line quoted back), list the unanswered ones in the report
+   with a one-line counter idea, so the owner can say yes in one word. Each counter still needs its own sourced fact
+   and its own picture (the WDMMA ranking; Sweden's Gripen on an American engine).
 4. **Their intention.** Praise, a point, a question, feedback, hope, mockery, politics, abuse. The intention decides
    the shape: an honest complaint about length gets thanks and a question back; a comment that mixes a fair point with
    a party attack gets an answer to the fair point only, and the politics is left alone.
