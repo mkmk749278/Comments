@@ -1,6 +1,11 @@
 # YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).
 # `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.
 videos:
+  0MiWlsXCrPA:
+    channel: bepracticalwithkishore
+    film: projects/matsya-6000
+    published: '2026-11-12'
+    title: Why India Built a 6,000-Meter Titanium Sphere
   7UNLVl2yrwI:
     channel: bepracticalwithkishore
     film: projects/health-claim-trap
