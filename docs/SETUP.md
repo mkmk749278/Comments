@@ -5,7 +5,9 @@ is done in **Chrome on the phone**; tap **⋮ → Desktop site** whenever a Goog
 
 You will end with these values, which go into the cloud environment's secrets (step 5), **never into the chat**:
 `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, and one `YT_REFRESH_TOKEN_<KEY>` per channel (key = the channel's name in
-`config/channels.yaml`): `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`, `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`.
+`config/channels.yaml`): `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE` (the English channel), `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORETELUGU`
+(the Telugu channel, @bepracticalwithkishore-telugu), `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. The two Be Practical
+with Kishore channels look alike in Google's chooser: pick the one the script names.
 
 ## 1. Create the Google Cloud project
 1. Open **console.cloud.google.com** and sign in with the Google account that owns the channels.

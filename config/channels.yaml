@@ -8,6 +8,17 @@ channels:
     film_dirs: [projects, episodes]
     reply_language: match         # match the commenter: te / Tenglish / en (owner, 2026-10-29; PLAYBOOK §2.2)
     voice: docs/PLAYBOOK.md#22-be-practical-with-kishore
+  # Be Practical with Kishore Telugu (owner, 2026-11-12: "We have two channels English and Telugu"). Its own channel
+  # and sign-in, the same Kishore voice; replies in the commenter's language, Telugu script for Telugu (PLAYBOOK §2.2).
+  # Secret YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORETELUGU (docs/SETUP.md step 4).
+  bepracticalwithkishoretelugu:
+    name: Be Practical with Kishore Telugu
+    handle: "@bepracticalwithkishore-telugu"
+    channel_id: UCmSfdF9JQ92U8u4whJZ5kEg
+    film_repo: mkmk749278/Creator
+    film_dirs: [projects, episodes]
+    reply_language: match
+    voice: docs/PLAYBOOK.md#22-be-practical-with-kishore
   # The Mechanical Paradox (owner, 2026-11-03). This is the channel once called Built on Bharat, renamed by the owner
   # (2026-11-04): same id, new name and voice. There is no Built on Bharat channel any more (PLAYBOOK §7.1).
   # Secret YT_REFRESH_TOKEN_THEMECHANICALPARADOX (docs/SETUP.md step 4).

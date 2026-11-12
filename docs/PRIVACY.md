@@ -1,9 +1,9 @@
 # Privacy policy: Comments
 
-*Last updated: 4 November 2026*
+*Last updated: 12 November 2026*
 
 **Comments** is a private tool used only by the owner of a few YouTube channels, among them **Be Practical with
-Kishore** (@bepracticalwithkishore) and **The Mechanical Paradox** (@themechanicalparadox), to read the comments on
+Kishore** (@bepracticalwithkishore), **Be Practical with Kishore Telugu** (@bepracticalwithkishore-telugu) and **The Mechanical Paradox** (@themechanicalparadox), to read the comments on
 the owner's own channels' videos and reply to them. It works only on channels the owner has signed in. It has no other
 users.
 

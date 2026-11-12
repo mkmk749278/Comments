@@ -3,6 +3,8 @@
 This repo answers YouTube comments for the owner's channels:
 - **Be Practical with Kishore** (`@bepracticalwithkishore`): narrated documentaries and explainers in English and
   Telugu. Films live in the repo `mkmk749278/Creator` (`projects/<slug>/`, `episodes/<slug>/`).
+- **Be Practical with Kishore Telugu** (`@bepracticalwithkishore-telugu`; owner, 2026-11-12: "We have two channels
+  English and Telugu"): its own channel and sign-in, the same rules and Kishore voice; reply in the commenter's language.
 - **The Mechanical Paradox** (`@themechanicalparadox`; owner, 2026-11-03; switched on 2026-11-04, PLAYBOOK §7.1):
   code-rendered physics explainers of everyday machines for a global English audience. Films live in
   the repo `mkmk749278/The-Mechanical-Paradox` (`films/<slug>/`).
@@ -109,7 +111,7 @@ owner what to heart, pin and hide. **The owner approves every reply before it is
 - `scripts/yt.py`: fetch, post, edit, hide and log (commands in PLAYBOOK §5.5); `tests/`: offline tests.
 - `docs/SETUP.md`: the owner's one-time phone setup for YouTube access (`scripts/termux_auth.py` does the sign-in in Termux). `docs/PLAYBOOK.md`: everything else.
 - Secrets (environment only): `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORE`,
-  `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. `YT_REFRESH_TOKEN_BUILTONBHARAT` is the old name's token: not used, the
+  `YT_REFRESH_TOKEN_BEPRACTICALWITHKISHORETELUGU`, `YT_REFRESH_TOKEN_THEMECHANICALPARADOX`. `YT_REFRESH_TOKEN_BUILTONBHARAT` is the old name's token: not used, the
   owner deletes it (PLAYBOOK §7.1).
 
 ## Ground rules
