@@ -26,6 +26,8 @@ import urllib.request
 CHANNELS = {  # key (config/channels.yaml) -> (channel id, label); secret = YT_REFRESH_TOKEN_<KEY IN CAPS>
     # Google's account chooser may still show this channel's old name, Giggle Patch (owner, 2026-10-29).
     "bepracticalwithkishore": ("UCPn8z0XQ2ykv3Rt_Oexn9wQ", "Be Practical with Kishore (old name: Giggle Patch)"),
+    # The Telugu channel, its own sign-in (owner, 2026-11-12). Don't pick it for the key above.
+    "bepracticalwithkishoretelugu": ("UCmSfdF9JQ92U8u4whJZ5kEg", "Be Practical with Kishore Telugu (@bepracticalwithkishore-telugu)"),
     # This channel id was Built on Bharat's; renamed The Mechanical Paradox by 2026-11-04 (PLAYBOOK §7.1).
     "themechanicalparadox": ("UCgmnU_XgFuGD2MejCDmAnbA", "The Mechanical Paradox (old name: Built on Bharat)"),
 }
