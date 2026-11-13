@@ -199,7 +199,7 @@ End the thought, start a new sentence.
 
 **The roast, Amul-style.** Wit and wordplay aimed at the **claim**, never cruel to a person, never at a country, race
 or religion. One true, sourced fact is the punchline ("Can't build anything? Then who parked a lander near the
-Moon's south pole?"). One roast per thread; we never answer their comeback. Roast only plain mockery of India;
+Moon's south pole?"). One roast per thread; we never answer their comeback unless the owner asks for a counter (then a new fact, §5.9). Roast only plain mockery of India;
 a good-faith sceptic gets respect, not a roast. *Why so careful:* a 2022 study found roasting raises engagement but
 lowers persuasion, because readers judge it inappropriate, and practitioners advise small brands to "toast" more than
 they "roast". Our roast is mainly for the Indian readers watching the thread, so it must make them smile, not wince.
@@ -542,6 +542,26 @@ written, checked, and posted or set aside) before you read the next one.
    account's jabs each carry a claim (a ranking, our own line quoted back), list the unanswered ones in the report
    with a one-line counter idea, so the owner can say yes in one word. Each counter still needs its own sourced fact
    and its own picture (the WDMMA ranking; Sweden's Gripen on an American engine).
+   **An emoji-only comeback can be countered too, and this is the creativity to copy (owner, 2026-11-13: "Use this
+   kind of creativity. I liked it").** @Clambakes answered our WDMMA counter with only "😂😂😂"; we first logged
+   no-reply (one roast per thread), and the owner said "Counter attack Clambakes too". The reply he liked:
+   > @Clambakes Six laughing faces now, and still no answer 😄 Try this one: in 2004, Indian pilots in MiGs, Sukhois
+   > and Mirages flew mock air battles against US F-15s, and the head of US Air Combat Command called the results
+   > "a wake-up call". And those Indian jets flew on Russian and French engines. Emojis don't win dogfights. Pilots do.
+   What made it work, to do again:
+   - **Turn their own move into the opening line.** He had nothing but emojis, so we counted them ("Six laughing
+     faces now, and still no answer"): the reader smiles before any fact arrives.
+   - **A new fact every counter, never a repeat.** The thread already had the ranking; this one brought a different
+     kind of proof (a real exercise and the other side's own words), so the thread builds instead of looping.
+   - **The fact flips the original jab.** His first jab was "no engines for their jets". Indian pilots beat F-15s
+     flying jets on foreign engines, so his own point became our punchline, without saying it out loud.
+   - **The proof is the other side's words.** A quote from the US commander carries more than any claim of ours.
+   - **Honest edges.** The widely repeated "Indians won 90%" was left out: the results were never released and the
+     figure is unofficial. The roast stays true even when a bigger number is on offer.
+   - **End on a short line a reader can repeat** ("Emojis don't win dogfights. Pilots do."): two short sentences, no
+     insult to the person or his country.
+   *Why:* the counter answers a laugh with a fact, wins the thread for the Indian readers watching, and gives the
+   mocker nothing to argue with but a scoreboard.
 4. **Their intention.** Praise, a point, a question, feedback, hope, mockery, politics, abuse. The intention decides
    the shape: an honest complaint about length gets thanks and a question back; a comment that mixes a fair point with
    a party attack gets an answer to the fair point only, and the politics is left alone.
