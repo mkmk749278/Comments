@@ -327,6 +327,20 @@ depending on someone else again"), no tidy three-part structure. A small loose e
 this: people, caste, community or politics?" and share our frustration. Kept the energy, dropped the target: we asked
 "what really holds our engineering back? Money, patience or the way projects are run?" and asked him to share films
 with his engineer friends. Frustration goes into the bottleneck, never into a caste, community, party or leader.
+
+**Politics and geopolitics: answer, don't dodge (owner, 2026-11-17).** We first skipped @Blixey-r9z's PS on Nehru and
+the China border as "politics, no sides". The owner: "We need to answer. We no need to support any party but what
+actually all politics causing bad for India we need to and also geopolitical border issues also." So when a comment
+raises politics or a border, reply to it: how politics as a whole hurts India's big projects (projects tied to one
+leader, short tenures, each new face wanting their own scheme), and the border with sourced facts (talks, reports,
+dates). Never praise or blame a party; a past leader's decision is told through sourced findings, attributed ("the
+parts of the report that leaked say…"), not as our verdict. Defend India's democracy gently when a viewer argues for
+strongman rule. *Why:* a regular viewer who writes essays for us deserves an answer on what he actually asked; dodging
+reads as fear, and facts without party colour keep everyone in the comments.
+
+**Hand-typed applies to every reply, every channel (owner, 2026-11-17):** "for all comments all replies should look
+plain and hand typed." Match the effort the viewer gives: "you can see how much he is typing for us", so a long
+thoughtful comment gets a fuller reply that picks up his own points, still in plain phone-typed sentences.
 *Why:* the playful, on-picture reply was the one the owner liked best; a smart turn in plain words gets read, liked
 and answered, while a correct but stiff fact gets scrolled past.
 
