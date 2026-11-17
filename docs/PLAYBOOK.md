@@ -317,6 +317,16 @@ even more creativity, but keep everything in simple words."
 - **Simple words always:** creativity lives in the idea and the picture, never in long or fancy words. Most of our
   viewers are over 45 and many read English as a second language.
 - The facts stay sourced (§5.10), and the respect rules hold: read the name before the joke (§2.4).
+
+**Typed by hand, not polished (owner, 2026-11-17).** On the @Blixey-r9z reply: "post replies in natural way of speak,
+how he typed every words rather than using ai". Write the way a person types on a phone: plain short sentences, no
+colons or em-dashes, no neat parallel slogans ("an engine rushed is an engine borrowed" became "Rush it and we end up
+depending on someone else again"), no tidy three-part structure. A small loose edge is fine; a polished essay is not.
+
+**Engagement without blame (owner, 2026-11-17).** The owner wanted to ask a regular engineer viewer "why is India like
+this: people, caste, community or politics?" and share our frustration. Kept the energy, dropped the target: we asked
+"what really holds our engineering back? Money, patience or the way projects are run?" and asked him to share films
+with his engineer friends. Frustration goes into the bottleneck, never into a caste, community, party or leader.
 *Why:* the playful, on-picture reply was the one the owner liked best; a smart turn in plain words gets read, liked
 and answered, while a correct but stiff fact gets scrolled past.
 
