@@ -586,6 +586,12 @@ written, checked, and posted or set aside) before you read the next one.
      insult to the person or his country.
    *Why:* the counter answers a laugh with a fact, wins the thread for the Indian readers watching, and gives the
    mocker nothing to argue with but a scoreboard.
+   **When the mockery uses faith (owner, 2026-11-18: "Counter attack pajeet and NDN too. He is joking about culture
+   cow and lakshmi. Be careful").** @pajeetkumar1645 built his parody on a cow named Lakshmi, Vedic vimanas and the
+   saffron flag. The counter never plays inside that part of the joke and never jokes back about any faith: it beats
+   him on the engineering (his 337 words against our 60, then Vikrant's 30,000 tonnes of Indian warship steel) and
+   asks once, plainly, to leave Lakshmi out ("that name is a prayer in Indian homes"). *Why:* a joke about a sacred
+   name, even to win a thread, hurts the believers reading it; a calm line defends them without a sermon.
 4. **Their intention.** Praise, a point, a question, feedback, hope, mockery, politics, abuse. The intention decides
    the shape: an honest complaint about length gets thanks and a question back; a comment that mixes a fair point with
    a party attack gets an answer to the fair point only, and the politics is left alone.
