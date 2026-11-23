@@ -3,8 +3,8 @@
 videos:
   A2mxbj2LoJI:
     channel: bepracticalwithkishore
-    film: null
-    note: Arjun tank engine film; Creator repo not reachable on 2026-11-23, map its folder when it is
+    film: projects/arjun-tank
+    note: Arjun tank engine film; in mkmk749278/Be-Practical-with-Kishore since the 2026-11-23 rebuild (its claims.csv was lost with Creator and is being rebuilt)
     published: '2026-11-22'
     title: Why India's ₹7,500 Cr Arjun Tanks Have No Engine
   0MiWlsXCrPA:

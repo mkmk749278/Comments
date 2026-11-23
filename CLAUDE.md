@@ -2,7 +2,7 @@
 
 This repo answers YouTube comments for the owner's channels:
 - **Be Practical with Kishore** (`@bepracticalwithkishore`): narrated documentaries and explainers in English and
-  Telugu. Films live in the repo `mkmk749278/Creator` (`projects/<slug>/`, `episodes/<slug>/`).
+  Telugu. Films live in the repo `mkmk749278/Be-Practical-with-Kishore` (`projects/<slug>/`; it replaced `mkmk749278/Creator`, which GitHub disabled in November 2026; older films' files are in that repo's 05 NOV backup bundle on Drive).
 - **Be Practical with Kishore Telugu** (`@bepracticalwithkishore-telugu`; owner, 2026-11-12: "We have two channels
   English and Telugu"): its own channel and sign-in, the same rules and Kishore voice; reply in the commenter's language.
 - **The Mechanical Paradox** (`@themechanicalparadox`; owner, 2026-11-03; switched on 2026-11-04, PLAYBOOK §7.1):
