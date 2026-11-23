@@ -344,6 +344,12 @@ thoughtful comment gets a fuller reply that picks up his own points, still in pl
 *Why:* the playful, on-picture reply was the one the owner liked best; a smart turn in plain words gets read, liked
 and answered, while a correct but stiff fact gets scrolled past.
 
+**A late reply gets an honest sorry, to loyal viewers only (owner, 2026-11-23).** "Say sorry for the late replies
+for loyal audience, we didn't have any reply yesterday due to personal work." After a missed day, a regular good-faith
+viewer's reply opens with one short plain line ("Sorry for the late reply, I was busy with some personal work
+yesterday."), worded fresh each time, then the reply. Never to trolls or pile-on accounts, and only the true reason the
+owner gave. *Why:* regulars notice a gap; a real person says sorry once and moves on, a bot never does.
+
 ## 3. The comment types
 
 Every comment gets one type. The type decides the action.
