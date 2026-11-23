@@ -348,7 +348,10 @@ and answered, while a correct but stiff fact gets scrolled past.
 for loyal audience, we didn't have any reply yesterday due to personal work." After a missed day, a regular good-faith
 viewer's reply opens with one short plain line ("Sorry for the late reply, I was busy with some personal work
 yesterday."), worded fresh each time, then the reply. Never to trolls or pile-on accounts, and only the true reason the
-owner gave. *Why:* regulars notice a gap; a real person says sorry once and moves on, a bot never does.
+owner gave. **Only when the comment really waited (owner, same day: "You said sorry even for newer comments too, these
+are actually not that much late").** On 2026-11-23 the apology went on a comment 3 hours old and one 16 hours old; the
+owner took them out. So check the comment's time first: it must be from the missed day or earlier, waiting more than
+about 24 hours. A comment posted since the last normal run gets no apology. *Why:* regulars notice a gap; a real person says sorry once and moves on, a bot never does.
 
 ## 3. The comment types
 
