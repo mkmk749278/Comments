@@ -1,12 +1,6 @@
 # YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).
 # `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.
 videos:
-  A2mxbj2LoJI:
-    channel: bepracticalwithkishore
-    film: projects/arjun-tank
-    note: Arjun tank engine film; in mkmk749278/Be-Practical-with-Kishore since the 2026-11-23 rebuild (its claims.csv was lost with Creator and is being rebuilt)
-    published: '2026-11-22'
-    title: Why India's ₹7,500 Cr Arjun Tanks Have No Engine
   0MiWlsXCrPA:
     channel: bepracticalwithkishore
     film: projects/matsya-6000
@@ -22,6 +16,13 @@ videos:
     film: projects/carrier-catapult
     published: '2026-11-17'
     title: Why India's ₹20,000 Cr Aircraft Carrier Has No Catapult
+  A2mxbj2LoJI:
+    channel: bepracticalwithkishore
+    film: projects/arjun-tank
+    note: Arjun tank engine film; in mkmk749278/Be-Practical-with-Kishore since the 2026-11-23 rebuild (its claims.csv was
+      lost with Creator and is being rebuilt)
+    published: '2026-11-22'
+    title: Why India's ₹7,500 Cr Arjun Tanks Have No Engine
   Cr3n1VEpBU4:
     channel: bepracticalwithkishoretelugu
     film: null
