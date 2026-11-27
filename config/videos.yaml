@@ -1,6 +1,11 @@
 # YouTube video id -> film folder in the channel's film repo (CLAUDE.md, PLAYBOOK §5.1).
 # `scripts/yt.py videos` adds new uploads with film: null; the session maps them by title.
 videos:
+  0BgAi3dGfl0:
+    channel: bepracticalwithkishore
+    film: projects/phwr-700
+    published: '2026-11-27'
+    title: Canada Walked Out of India's Nuclear Reactor
   0MiWlsXCrPA:
     channel: bepracticalwithkishore
     film: projects/matsya-6000
